@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder,FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ResetpasswordService } from 'src/app/services/resetpassword.service';
 
