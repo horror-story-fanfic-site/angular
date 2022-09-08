@@ -15,7 +15,8 @@ import { CommentComponent } from './components/comment/comment.component';
 import { UserCardComponent } from './components/user-card/user-card.component';
 import { UserInitialsPipe } from './pipes/user-initials.pipe';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { FollowersComponent } from './followers/followers.component';
+import { FollowersComponent } from './components/followers/followers.component';
+import { ForgotpasswordComponent } from './components/forgotpassword/forgotpassword.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { FollowersComponent } from './followers/followers.component';
     NavbarComponent,
     UserInitialsPipe,
     FollowersComponent,
+    ForgotpasswordComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { FollowersService } from 'src/app/services/followers.service';
 
 @Component({
   selector: 'app-followers',
@@ -7,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FollowersComponent implements OnInit {
 
-  constructor() { }
+  constructor(private followersService : FollowersService, private router : Router) { }
 
   ngOnInit(): void {
   }
