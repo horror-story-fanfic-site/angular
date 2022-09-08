@@ -29,4 +29,9 @@ export class ForgotpasswordComponent implements OnInit {
         }
       )
   }
+
+  register(): void {
+    this.router.navigate(['register']);
+  }
+
 }
