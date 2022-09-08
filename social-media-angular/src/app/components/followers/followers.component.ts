@@ -14,4 +14,10 @@ export class FollowersComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
+
+  addTofollowList(){
+    this.followersService.follow().subscribe
+
+  }
 }
