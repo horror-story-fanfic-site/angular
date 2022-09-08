@@ -25,7 +25,7 @@ export class ForgotpasswordComponent implements OnInit {
       .subscribe(
         (response) => {
           this.resetPasswordService.currentUser = response
-          this.router.navigate(['resetpassword-form'])
+          this.router.navigate(['resetpassword'])
         }
       )
   }

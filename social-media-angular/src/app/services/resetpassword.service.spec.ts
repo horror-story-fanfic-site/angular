@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 
 import { ResetpasswordService } from './resetpassword.service';
 
-describe('ReserpasswordService', () => {
+describe('ResetpasswordService', () => {
   let service: ResetpasswordService;
 
   beforeEach(() => {
