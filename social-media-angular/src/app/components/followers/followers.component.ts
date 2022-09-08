@@ -11,7 +11,10 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 export class FollowersComponent implements OnInit {
 
   toFollowForm = new FormGroup({
-    email: new FormControl(''),
+    userName: new FormControl(''),
+    firstName: new FormControl(''),
+    lastName: new FormControl(''),
+    
   })
 
   constructor(private followersService : FollowersService, private router : Router) { }
@@ -21,13 +24,13 @@ export class FollowersComponent implements OnInit {
 
   onSubmit(e: any): void{
     e.preventDefault;
-    // this.followersService.toFollowUsers(this.loginForm.value.email || "")
-    //   .subscribe(
-    //     (response) => {
-    //       this.followersService.currentUser = response
-    //       this.router.navigate(['toFollowUser'])
-    //     }
-    //   )
+     this.followersService.follow(this.toFollowForm.value.userName, this.toFollowForm.value.firstName, this.toFollowForm.value.lastName)
+      .subscribe(
+        (response) => {
+          this.followersService.toFollowUser = response
+          this.router.navigate(['toFollowUser'])
+        }
+      )
   }
 
 }
