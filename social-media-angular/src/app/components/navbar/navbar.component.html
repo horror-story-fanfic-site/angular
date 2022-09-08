@@ -1,7 +1,11 @@
 <p>
     <mat-toolbar>
-        <span [routerLink]="['/post-feed']">Revature Social Media</span>
+        <span [routerLink]="['/post-feed']"></span>
+        <button mat-button >Menu</button>
         <span class="spacer"></span>
+        <span>Logo Goes Here</span>
+        <span class="spacer"></span>
+        <span>Welcome, {{user.username}}</span>
         <button mat-button (click)="logout();">Logout</button>
     </mat-toolbar>
 </p>
