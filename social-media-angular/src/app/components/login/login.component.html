@@ -1,19 +1,55 @@
-<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
-  <mat-card class="box">
-    <mat-card-header>
-      <mat-card-title>Log in</mat-card-title>
-    </mat-card-header>
-    <form class="form" [formGroup]="loginForm" (ngSubmit)="onSubmit($event)">
-      <mat-card-content>
-        <mat-form-field class="full-width">
-          <input matInput placeholder="Email" formControlName="email">
-        </mat-form-field>
-        <mat-form-field class="full-width">
-          <input matInput placeholder="Password" type="password" formControlName="password">
-        </mat-form-field>
-      </mat-card-content>
-      <button mat-stroked-button color="accent" class="btn-block" type="submit">Log in</button>
-    </form>
-    <a class="login-rerout-link" [routerLink]="['/register']">Don't have an account?</a>
-  </mat-card>
-</div>
+<body class="login">
+  <div id="card">
+    <div id="card-content">
+      <div id="card-title">
+        <h2>LOGIN</h2>
+        <div class="underline-title"></div>
+      </div>
+      <form
+        method="post"
+        class="form"
+        [formGroup]="loginForm"
+        (ngSubmit)="onSubmit($event)"
+      >
+        <label for="user-email" style="padding-top: 13px; color: white">
+          &nbsp;Email
+        </label>
+
+        <input
+          matInput
+          type="text"
+          formControlName="email"
+          id="user-email"
+          class="form-content"
+          type="email"
+          name="email"
+          autocomplete="on"
+          required
+        />
+
+        <div class="form-border"></div>
+        <label for="user-password" style="padding-top: 22px; color: white"
+          >&nbsp;Password
+        </label>
+
+        <input
+          matInput
+          type="text"
+          id="user-password"
+          class="form-content"
+          formControlName="password"
+          type="password"
+          name="password"
+          required
+        />
+
+        <div class="form-border"></div>
+        <a href="#">
+          <legend id="forgot-pass">Forgot password?</legend>
+        </a>
+        <input id="submit-btn" type="submit" name="submit" value="LOGIN" />
+        <a href="../register" id="signup">Don't have account yet?</a>
+      </form>
+    </div>
+  </div>
+</body>
