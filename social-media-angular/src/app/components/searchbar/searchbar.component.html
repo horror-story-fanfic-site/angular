@@ -1,0 +1,14 @@
+<input type="text" id="searchPostBar">
+<div class="dropdown">
+    <input type="text" data-bs-toggle="dropdown">
+    <button (click)="pageButtonEvent(-1)" data-bs-toggle="dropdown" [disabled]="clickable1">&lt;</button>
+    <button (click)="pageButtonEvent(1)" data-bs-toggle="dropdown" [disabled]="clickable2">&gt;</button>
+    <ul class="dropdown-menu">
+        <li>
+            <a class="dropdown-item">Hello</a>
+        </li>
+        <li *ngFor="let username of selectedNames">
+            <a class="dropdown-item">{{username}}</a>
+        </li>
+    </ul>
+  </div>
