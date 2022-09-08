@@ -8,7 +8,8 @@ import Profile from '../models/Profile';
 })
 export class ProfileService {
 
-  private getProfileUrl = 'http://localhost:9002/peek';
+  private getProfileUrl = 'http://localhost:9002/user/peek';
+  // private getProfileUrl = '/user/peek';
 
   constructor(private http: HttpClient) { }
 
