@@ -18,17 +18,17 @@ export class FollowersComponent implements OnInit {
   })
 
   constructor(private followersService : FollowersService, private router : Router) { }
-
+  public isFollow: boolean = false;
   ngOnInit(): void {
   }
 
-
-
-
-  addTofollowList(){
-    this.followersService.follow().subscribe
+  onClick(){
+    this.isFollow = !this.isFollow;
 
   }
+
+
+
 
   onSubmit(e: any): void{
     e.preventDefault;

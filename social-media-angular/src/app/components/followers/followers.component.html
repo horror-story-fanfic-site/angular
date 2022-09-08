@@ -1,3 +1,10 @@
 <p>followers works!</p>
 
-<button class="btn btn-primary" (click)="addToFollowList">Follow</button>
+<form>
+
+    <button [ngClass]="{'followup' : isFollow == true,
+        'unfollow' : isFollow== false }" 
+        (click)="onClick()">
+        {{isFollow == true ? 'Unfollow' : (isFollow == false ? 'Follow' : '')}}
+    </button>
+    </form>
