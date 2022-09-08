@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UsersService } from 'src/app/services/users.service'; 
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-searchbar',
@@ -9,36 +11,17 @@ import { Component, OnInit } from '@angular/core';
 export class SearchbarComponent implements OnInit {
 
   
-  constructor() {
+  constructor(private usersService: UsersService) {
     
   }
-  usernameList: string[];
+  usernameList: String[];
   ngOnInit(): void {
     this.refreshSearch();
-    this.usernameList=[
-      "Nathan",
-      "Nathana",
-      "Nathanb",
-      "Nathanc",
-      "Nathand",
-      "Nathane",
-      "Nathanf",
-      "Josh",
-      "Josha",
-      "Joshb",
-      "Joshc",
-      "Joshd",
-      "Joshe",
-      "Joshf",
-      "Joshg",
-      "Heather",
-      "Heathera",
-      "Heatherb",
-      "Heatherc",
-      "Heatherd",
-      "Heathere",
-      "Heatherf"
-  ];
+    this.usersService.getAllUserNames().subscribe(
+      (response) => {
+        this.usernameList=response;
+      }
+    )
     // this.service.getAllUsers().subscribe(
     //   (response) => {
     //     this.users = response
@@ -62,6 +45,7 @@ export class SearchbarComponent implements OnInit {
     this.intervalId = window.setInterval(()=>{
       let search: String | undefined=(document.getElementById("searchPostBar") as HTMLInputElement).value;
       if (search!=this.oldSearch){
+        this.usernames=[];
         this.usernames=this.search(search);
         this.select(0, this.pageAmount);
         this.oldSearch=search;
@@ -75,7 +59,7 @@ export class SearchbarComponent implements OnInit {
     this.page=0;
     //This checks if it is empty.
     //TODO make sure this works.
-    if (search==undefined){
+    if (search==undefined || search==""){
       return [];
     }
 
@@ -84,7 +68,7 @@ export class SearchbarComponent implements OnInit {
 
     //This loops through all the usernames.
     for(let x=0;x<this.usernameList.length;x++){
-      let username=this.usernameList[x];//TODO Replace with username.
+      let username=this.usernameList[x];
       let y, w: number;
 
       //Loop through all the characters in the search.
