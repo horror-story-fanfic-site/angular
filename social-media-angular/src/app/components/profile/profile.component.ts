@@ -18,6 +18,7 @@ export class ProfileComponent implements OnInit {
     // this.profileService.getProfile();
     this.profileService.getProfile().subscribe((profile) => (
       this.profile = profile));
+
   }
   
 }
