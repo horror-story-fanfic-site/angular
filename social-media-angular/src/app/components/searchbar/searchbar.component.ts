@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import User from 'src/app/models/User';
 
 @Component({
   selector: 'app-searchbar',
@@ -57,17 +56,16 @@ export class SearchbarComponent implements OnInit {
   oldSearch: String | undefined;
   page: number=0;
   pageAmount: number=6;
-  clickable1: boolean=false;
-  clickable2: boolean=false;
+  disabled1: boolean=true;
+  disabled2: boolean=true;
   private refreshSearch(){
     this.intervalId = window.setInterval(()=>{
-      let search: String | undefined=document.getElementById("SearchPostBar")?.innerText.toLowerCase();
+      let search: String | undefined=(document.getElementById("searchPostBar") as HTMLInputElement).value;
       if (search!=this.oldSearch){
         this.usernames=this.search(search);
         this.select(0, this.pageAmount);
         this.oldSearch=search;
       }
-      
     }, 1000);
   }
 
@@ -106,6 +104,7 @@ export class SearchbarComponent implements OnInit {
 
       //If the username did not hit the end before the characters to search hit the end this is ran.
       if (w<username.length) {
+        results[index]=username;
         index++;
       }
     }
@@ -118,16 +117,16 @@ export class SearchbarComponent implements OnInit {
   }
 
   select(page: number, pageAmount: number){
-    this.clickable1=(page>0);
+    this.disabled1=(page==0);
     
     let start: number=page*pageAmount;
     let limit: number=(page+1)*pageAmount;
     
     if (limit>this.usernames.length){
-      this.clickable2=false;
+      this.disabled2=true;
       limit=this.usernames.length;
     }else{
-      this.clickable2=true;
+      this.disabled2=false;
     }
     
     for(let x=start;x<limit;x++){
