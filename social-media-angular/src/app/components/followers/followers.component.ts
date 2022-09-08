@@ -24,13 +24,13 @@ export class FollowersComponent implements OnInit {
 
   onSubmit(e: any): void{
     e.preventDefault;
-     this.followersService.follow(this.toFollowForm.value.userName, this.toFollowForm.value.firstName, this.toFollowForm.value.lastName)
-      .subscribe(
-        (response) => {
-          this.followersService.toFollowUser = response
-          this.router.navigate(['toFollowUser'])
-        }
-      )
+    //  this.followersService.follow(this.toFollowForm.value.userName, this.toFollowForm.value.firstName, this.toFollowForm.value.lastName)
+    //   .subscribe(
+    //     (response) => {
+    //       this.followersService.toFollowUser = response
+    //       this.router.navigate(['toFollowUser'])
+    //     }
+    //   )
   }
 
 }
