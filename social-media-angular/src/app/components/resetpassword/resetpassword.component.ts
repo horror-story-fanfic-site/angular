@@ -21,7 +21,6 @@ export class ResetpasswordComponent implements OnInit {
   }
 
   onSubmit(e: any): void{
-    if(this.passwordForm.value.newPassword == this.passwordForm.value.confirmPassword){
       e.preventDefault;
       this.resetPasswordService.resetpassword(this.passwordForm.value.newPassword || '')
         .subscribe(
@@ -30,8 +29,6 @@ export class ResetpasswordComponent implements OnInit {
             this.router.navigate(['login'])
           }
         )
-    }
-    
   }
 
 }
