@@ -11,7 +11,7 @@ import { ResetpasswordService } from 'src/app/services/resetpassword.service';
 export class ForgotpasswordComponent implements OnInit {
 
   loginForm = new FormGroup({
-    email: new FormControl(''),
+    email: new FormControl('')
   })
 
   constructor(private resetPasswordService: ResetpasswordService, private router: Router) { }
