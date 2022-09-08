@@ -23,7 +23,7 @@ export class ResetpasswordService {
     return res;
   }
 
-  resetpassord(password: string): Observable<any> {
+  resetpassword(password: string): Observable<any> {
     const payload = {password:password};
     const res = this.http.post<any>(`${this.authUrl}/resetuserpassword`, payload, {headers: environment.headers, withCredentials: environment.withCredentials});
     res.subscribe((data) => {
