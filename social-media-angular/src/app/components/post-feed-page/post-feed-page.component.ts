@@ -3,6 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import Post from 'src/app/models/Post';
 import User from 'src/app/models/User';
 import { AuthService } from 'src/app/services/auth.service';
+import { LocalService } from 'src/app/services/local.service';
 import { PostService } from 'src/app/services/post.service';
 
 @Component({
@@ -21,7 +22,7 @@ export class PostFeedPageComponent implements OnInit {
   posts: Post[] = [];
   createPost:boolean = false;
 
-  constructor(private postService: PostService, private authService: AuthService) { }
+  constructor(private postService: PostService, private authService: AuthService, private localStore: LocalService) { }
 
   ngOnInit(): void {
     this.postService.getAllPosts().subscribe(
@@ -29,6 +30,13 @@ export class PostFeedPageComponent implements OnInit {
         this.posts = response
       }
     )
+    this.localStore.saveData("posts", this.posts);
+    
+    
+  }
+
+  public saveData(key: string, value: any){
+    localStorage.setItem("posts", JSON.stringify(this.posts));
   }
 
   toggleCreatePost = () => {
