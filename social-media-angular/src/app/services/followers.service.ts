@@ -15,8 +15,8 @@ export class FollowersService {
 
   constructor(private http: HttpClient) { }
 
-  follow(userName: string, firstName: string, lastName: string): Observable<any> {
-    const payload = {userName:userName, firstName:firstName, lastName:lastName};
+  follow(username: string): Observable<any> {
+    const payload = {username:username};
     const res = this.http.post<any>(`${this.followUrl}/follow`,payload, {headers: environment.headers, withCredentials: environment.withCredentials});
     res.subscribe((data) => {
       this.toFollowUser = data
