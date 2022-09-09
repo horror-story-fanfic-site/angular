@@ -17,7 +17,7 @@ export class FollowersComponent implements OnInit {
     
   })
 
-  constructor(private followersService : FollowersService, private router : Router) { }
+  constructor(private followersService : FollowersService) { }
   public isFollow: boolean = false;
   ngOnInit(): void {
   }
