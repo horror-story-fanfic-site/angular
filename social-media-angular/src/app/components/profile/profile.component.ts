@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import Profile from 'src/app/models/Profile';
 import { ProfileService } from 'src/app/services/profile.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -11,7 +12,14 @@ export class ProfileComponent implements OnInit {
 
   @Input() profile: Profile;
 
-  constructor(private profileService: ProfileService) { }
+  // inputs for forms
+  usernameSubmit: string;
+  descriptionSubmit: string;
+  birthDaySubmit: number;
+  birthMonthSubmit: number;
+  birthYearSubmit: number;
+
+  constructor(private profileService: ProfileService, private router: Router ) { }
 
   ngOnInit(): void {
 
@@ -21,6 +29,38 @@ export class ProfileComponent implements OnInit {
 
   }
   
-}
+  updateUsernameSubmit() {
+    console.log("in profile.ts:", this.usernameSubmit);
+    this.profileService.updateUsername(this.usernameSubmit).subscribe((response) => (
+      this.profile.username = this.usernameSubmit
+    ));
+    
+    //after the submit, clear the form
+    this.usernameSubmit = "";
+  }
 
-console.log("In profile component");
+  updateDescriptionSubmit() {
+
+    this.profileService.updateDescription(this.descriptionSubmit).subscribe((response) => (
+      this.profile.description = this.descriptionSubmit
+    ));
+
+    //after the submit, clear the form
+    this.descriptionSubmit = "";
+  }
+  
+  updateDOBSubmit() {
+
+    this.profileService.updateDOB(
+      `${this.birthDaySubmit}`,
+      `${this.birthMonthSubmit}`,
+      `${this.birthYearSubmit}`
+    ).subscribe((response) => (
+      console.log("birthday changed")
+    ))
+  }
+  
+  checkRoute(): boolean {
+    return this.router.url === "/profile";
+  }
+}

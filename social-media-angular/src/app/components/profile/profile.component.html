@@ -4,6 +4,57 @@
 <div>{{profile.username}}</div>
 <div>{{profile.description}}</div>
 
+<form (ngSubmit)="updateUsernameSubmit()" *ngIf="checkRoute()">
+    <label for="usernameSubmit">New Username:</label>
+    <input 
+        type="text" 
+        name="usernameSubmit"
+        id="usernameSubmit"
+        placeholder="New Username"
+        [(ngModel)] = "usernameSubmit"
+    >
+    <input type="submit" value="Submit">
+</form>
+
+<form (ngSubmit)="updateDescriptionSubmit()" *ngIf="checkRoute()">
+    <label for="descriptionSubmit">New Description:</label>
+    <input 
+        type="text"
+        name="descriptionSubmit"
+        id="descriptionSubmit"
+        placeholder="New Description"
+        [(ngModel)]="descriptionSubmit"
+        >
+    <input type="submit" value="Submit">
+</form>
+
+<form (ngSubmit)="updateDOBSubmit()" *ngIf="checkRoute()">
+    <label for="DOBSubmit">New Birthday:</label>
+    <input 
+        type="number"
+        name="birthDaySubmit"
+        id="DOBSubmit"
+        placeholder="New Day"
+        [(ngModel)]="birthDaySubmit"
+    >
+    <input 
+        type="number"
+        name="birthMonthSubmit"
+        id="DOBSubmit"
+        placeholder="New Month"
+        [(ngModel)]="birthMonthSubmit"
+    >
+    <input 
+        type="number" 
+        name="birthYearSubmit"
+        id="DOBSubmit"
+        placeholder="New Year"
+        [(ngModel)]="birthYearSubmit"
+    >
+    <input type="submit" value="Submit">
+
+</form>
+
 <mat-list>
     <mat-list-item> {{profile.birthDay}} </mat-list-item>
     <mat-list-item> {{profile.birthMonth}} </mat-list-item>
