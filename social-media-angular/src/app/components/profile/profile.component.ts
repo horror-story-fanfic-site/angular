@@ -18,14 +18,18 @@ export class ProfileComponent implements OnInit {
   birthDaySubmit: number;
   birthMonthSubmit: number;
   birthYearSubmit: number;
+  follow: string;
 
   constructor(private profileService: ProfileService, private router: Router ) { }
 
   ngOnInit(): void {
 
-    // this.profileService.getProfile();
-    this.profileService.getProfile().subscribe((profile) => (
-      this.profile = profile));
+    //if( this.checkRoute() ) {
+      this.profileService.getProfile().subscribe((profile) => (
+        this.profile = profile));
+    //}else{
+      //add service to go to another profile
+    //}
 
   }
   
@@ -63,4 +67,11 @@ export class ProfileComponent implements OnInit {
   checkRoute(): boolean {
     return this.router.url === "/profile";
   }
+
+  addFollow() {
+    this.profileService.followPerson(this.follow).subscribe((data) => (
+      console.log(data.username)
+    ))
+  }
+
 }
