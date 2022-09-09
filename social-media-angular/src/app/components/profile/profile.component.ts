@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import Profile from 'src/app/models/Profile';
 import { ProfileService } from 'src/app/services/profile.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -18,7 +19,7 @@ export class ProfileComponent implements OnInit {
   birthMonthSubmit: number;
   birthYearSubmit: number;
 
-  constructor(private profileService: ProfileService) { }
+  constructor(private profileService: ProfileService, private router: Router ) { }
 
   ngOnInit(): void {
 
@@ -59,4 +60,7 @@ export class ProfileComponent implements OnInit {
     ))
   }
   
+  checkRoute(): boolean {
+    return this.router.url === "/profile";
+  }
 }

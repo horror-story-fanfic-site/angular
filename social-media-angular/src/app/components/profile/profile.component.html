@@ -4,7 +4,7 @@
 <div>{{profile.username}}</div>
 <div>{{profile.description}}</div>
 
-<form (ngSubmit)="updateUsernameSubmit()">
+<form (ngSubmit)="updateUsernameSubmit()" *ngIf="checkRoute()">
     <label for="usernameSubmit">New Username:</label>
     <input 
         type="text" 
@@ -16,7 +16,7 @@
     <input type="submit" value="Submit">
 </form>
 
-<form (ngSubmit)="updateDescriptionSubmit()">
+<form (ngSubmit)="updateDescriptionSubmit()" *ngIf="checkRoute()">
     <label for="descriptionSubmit">New Description:</label>
     <input 
         type="text"
@@ -28,7 +28,7 @@
     <input type="submit" value="Submit">
 </form>
 
-<form (ngSubmit)="updateDOBSubmit()">
+<form (ngSubmit)="updateDOBSubmit()" *ngIf="checkRoute()">
     <label for="DOBSubmit">New Birthday:</label>
     <input 
         type="number"
