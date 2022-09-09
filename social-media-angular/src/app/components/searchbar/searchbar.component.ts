@@ -66,7 +66,7 @@ export class SearchbarComponent implements OnInit {
 
     //This loops through all the usernames.
     for(let x=0;x<this.usernameList.length;x++){
-      let username=this.usernameList[x];
+      let username=this.usernameList[x].toLowerCase();
       let y, w: number;
 
       //Loop through all the characters in the search.
