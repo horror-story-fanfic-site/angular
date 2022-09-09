@@ -1,0 +1,17 @@
+<div ng-app="demo" ng-controller="myCtrl">
+  <!-- <select>
+        <option>Results</option>
+        <option *ngFor="let username of selectedNames" routerLink="/profile/{{username}}">{{username}}</option>
+    </select> -->
+  <mat-form-field appearance="fill">
+    <mat-label>Searches</mat-label>
+    <mat-select>
+      <mat-option
+        *ngFor="let username of selectedNames"
+        routerLink="/profile/{{username}}"
+        >{{username}}</mat-option
+      >
+    </mat-select>
+  </mat-form-field>
+  <input type="text" id="searchPostBar" />
+</div>
