@@ -12,7 +12,7 @@ body {
   margin: 0;
   font-family: Archivo, "Archivo";
   min-height: 100vh;
-  background: -webkit-linear-gradient(left, #536976, #292e49);
+  background-image: linear-gradient(to right, #434343 0%, black 100%);
   
 }
 .app-header {
