@@ -15,6 +15,7 @@
       <mat-option
         *ngFor="let username of selectedNames"
         routerLink="/profile/{{username}}"
+        [(ngModel)] = "usernameToSearch"
         >{{username}}</mat-option
       >
     </mat-select>
