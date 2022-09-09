@@ -22,11 +22,6 @@ export class SearchbarComponent implements OnInit {
         this.usernameList=response;
       }
     )
-    // this.service.getAllUsers().subscribe(
-    //   (response) => {
-    //     this.users = response
-    //   }
-    // )
   }
 
   ngDestroy(): void{
@@ -46,6 +41,7 @@ export class SearchbarComponent implements OnInit {
       let search: String | undefined=(document.getElementById("searchPostBar") as HTMLInputElement).value;
       if (search!=this.oldSearch){
         this.usernames=[];
+        this.selectedNames=[];
         this.usernames=this.search(search);
         this.select(0, this.pageAmount);
         this.oldSearch=search;
