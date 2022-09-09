@@ -33,14 +33,11 @@ import { ResetpasswordComponent } from './components/resetpassword/resetpassword
     UserCardComponent,
     NavbarComponent,
     UserInitialsPipe,
-<<<<<<< HEAD
     FollowersComponent,
     ForgotpasswordComponent,
     ResetpasswordComponent,
     ProfileComponent,
-=======
     SearchbarComponent,
->>>>>>> f56204f512a4f79d00cc12f3f8240a2e702343b6
     ProfileComponent,
     SidebarComponent,
     FollowersComponent,
