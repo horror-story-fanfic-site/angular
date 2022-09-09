@@ -17,6 +17,11 @@ import { UserInitialsPipe } from './pipes/user-initials.pipe';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SearchbarComponent } from './components/searchbar/searchbar.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { FollowersComponent } from './components/followers/followers.component';
+import { ForgotpasswordComponent } from './components/forgotpassword/forgotpassword.component';
+import { ResetpasswordComponent } from './components/resetpassword/resetpassword.component';
+import { EmojisComponent } from './components/emojis/emojis.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +36,11 @@ import { ProfileComponent } from './components/profile/profile.component';
     UserInitialsPipe,
     SearchbarComponent,
     ProfileComponent,
+    SidebarComponent,
+    FollowersComponent,
+    ForgotpasswordComponent,
+    ResetpasswordComponent,
+    EmojisComponent
   ],
   imports: [
     BrowserModule,
