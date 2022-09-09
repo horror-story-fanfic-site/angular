@@ -1,36 +1,43 @@
 
-
-
-<div>{{profile.username}}</div>
-<div>{{profile.description}}</div>
-<!--<i class="icon" [ngClass]="classes"></i>-->
-<form (ngSubmit)="updateUsernameSubmit()" *ngIf="checkRoute()">
-    <label for="usernameSubmit">New Username:</label>
+<body class="profile">
+ <div id="card">
+    <div id="card-content">
+        <!-- <div>{{profile.username}}</div> -->
+        <!-- <div>{{profile.description}}</div> -->
+        <div id="card-title">
+        <h1>{{profile.username}}'s Profile</h1>
+        <div class="underline-title"></div>
+    </div>
+        <form (ngSubmit)="updateUsernameSubmit()" *ngIf="checkRoute()">
+    <label for="usernameSubmit"style="padding-top: 22px; color: white">Update Username</label>
     <input 
+        matInput
         type="text" 
         name="usernameSubmit"
         id="usernameSubmit"
         placeholder="New Username"
         [(ngModel)] = "usernameSubmit"
     >
-    <input type="submit" value="Submit">
-</form>
+    <input id="submit-btn" type="submit" value="Submit">
+         </form>
 
 <form (ngSubmit)="updateDescriptionSubmit()" *ngIf="checkRoute()">
-    <label for="descriptionSubmit">New Description:</label>
+    <label for="descriptionSubmit"style="padding-top: 22px; color: white">Update Description</label>
     <input 
+        matInput
         type="text"
         name="descriptionSubmit"
         id="descriptionSubmit"
         placeholder="New Description"
         [(ngModel)]="descriptionSubmit"
         >
-    <input type="submit" value="Submit">
+    <input id="submit-btn" type="submit" value="Submit">
 </form>
 
 <form (ngSubmit)="updateDOBSubmit()" *ngIf="checkRoute()">
-    <label for="DOBSubmit">New Birthday:</label>
+    <label for="DOBSubmit"style="padding-top: 22px; color: white">Update Birthday </label>
     <input 
+        matInput
         type="number"
         name="birthDaySubmit"
         id="DOBSubmit"
@@ -38,6 +45,7 @@
         [(ngModel)]="birthDaySubmit"
     >
     <input 
+        matInput
         type="number"
         name="birthMonthSubmit"
         id="DOBSubmit"
@@ -45,24 +53,22 @@
         [(ngModel)]="birthMonthSubmit"
     >
     <input 
+         matInput
         type="number" 
         name="birthYearSubmit"
         id="DOBSubmit"
         placeholder="New Year"
         [(ngModel)]="birthYearSubmit"
     >
-    <input type="submit" value="Submit">
+    <input id="submit-btn" type="submit" value="Submit">
 
 </form>
-
-<!-- //follow button -->
-<button (click)="addFollow()" *ngIf = "checkRoute() != true" >Follow
-    
-</button>
-
+</div>
+ </div>
+</body>
 <mat-list>
     <mat-list-item> {{profile.birthDay}} </mat-list-item>
     <mat-list-item> {{profile.birthMonth}} </mat-list-item>
     <mat-list-item> {{profile.birthYear}} </mat-list-item>
    </mat-list>
-   <body class="profile"></body>
+  
