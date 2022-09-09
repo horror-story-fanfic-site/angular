@@ -14,6 +14,8 @@ export class PostService {
 
   postData: any;
 
+  testData:any;
+
   constructor(private http: HttpClient, private localStore: LocalService) { }
 
   
@@ -24,8 +26,9 @@ export class PostService {
   }
 
   getFollowerPosts(): Observable<Post[]> {
-    this.postData = this.http.get<Post[]>(`${this.postUrl}/followposts`, {headers: environment.headers, withCredentials: environment.withCredentials})
-    return this.postData;
+    console.log("in get follower post")
+    this.testData = this.http.get<Post[]>(`${this.postUrl}/followposts`, {headers: environment.headers, withCredentials: environment.withCredentials})
+    return this.testData;
   }
 
   upsertPost(post: Post): Observable<Post> {
