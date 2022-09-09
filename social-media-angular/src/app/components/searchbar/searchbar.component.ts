@@ -27,7 +27,9 @@ export class SearchbarComponent implements OnInit {
   ngDestroy(): void{
     clearInterval(this.intervalId);
   }
-
+  loopy(){
+    
+  }
   intervalId=0;
   usernames: String[]=[];
   selectedNames: String[]=[];
