@@ -15,11 +15,11 @@ import { CommentComponent } from './components/comment/comment.component';
 import { UserCardComponent } from './components/user-card/user-card.component';
 import { UserInitialsPipe } from './pipes/user-initials.pipe';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { SearchbarComponent } from './components/searchbar/searchbar.component';
+import { ProfileComponent } from './components/profile/profile.component';
 import { FollowersComponent } from './components/followers/followers.component';
 import { ForgotpasswordComponent } from './components/forgotpassword/forgotpassword.component';
 import { ResetpasswordComponent } from './components/resetpassword/resetpassword.component';
-import { ProfileComponent } from './components/profile/profile.component';
-import { FollowerFeedPageComponent } from './components/follower-feed-page/follower-feed-page.component';
 
 @NgModule({
   declarations: [
@@ -32,11 +32,11 @@ import { FollowerFeedPageComponent } from './components/follower-feed-page/follo
     UserCardComponent,
     NavbarComponent,
     UserInitialsPipe,
+    SearchbarComponent,
+    ProfileComponent,
     FollowersComponent,
     ForgotpasswordComponent,
-    ResetpasswordComponent,
-    ProfileComponent,
-    FollowerFeedPageComponent,
+    ResetpasswordComponent
   ],
   imports: [
     BrowserModule,

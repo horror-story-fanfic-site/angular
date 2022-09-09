@@ -13,12 +13,10 @@ const routes: Routes = [
   { path: "login", component: LoginComponent },
   { path: "register", component: RegisterComponent },
   { path: "post-feed", component: PostFeedPageComponent},
-  { path: "forgotpassword", component: ForgotpasswordComponent},
-  { path: "resetpassword", component: ResetpasswordComponent},
-  { path: "followbutton", component: FollowersComponent},
   { path: "profile", component: ProfileComponent },
   { path: "stalk", component: ProfileComponent },
-
+  { path: "forgotpassword", component: ForgotpasswordComponent},
+  { path: "resetpassword", component: ResetpasswordComponent}
 ];
 
 @NgModule({
