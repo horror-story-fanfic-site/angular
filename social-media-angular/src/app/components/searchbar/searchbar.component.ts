@@ -40,7 +40,7 @@ export class SearchbarComponent implements OnInit {
   disabled2: boolean=true;
   private refreshSearch(){
     this.intervalId = window.setInterval(()=>{
-      let search: String | undefined=(document.getElementById("searchPostBar") as HTMLInputElement).value;
+      let search: String | undefined=(document.getElementById("searchPostBar") as HTMLInputElement).value.toLowerCase();
       if (search!=this.oldSearch){
         this.usernames=[];
         this.selectedNames=[];
@@ -66,7 +66,7 @@ export class SearchbarComponent implements OnInit {
 
     //This loops through all the usernames.
     for(let x=0;x<this.usernameList.length;x++){
-      let username=this.usernameList[x];
+      let username=this.usernameList[x].toLowerCase();
       let y, w: number;
 
       //Loop through all the characters in the search.
