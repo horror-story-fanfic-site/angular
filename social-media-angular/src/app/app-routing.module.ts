@@ -13,6 +13,8 @@ const routes: Routes = [
   { path: "profile", component: ProfileComponent },
   { path: "stalk", component: ProfileComponent },
 
+  { path: "forgotpassword", component: ForgotpasswordComponent},
+  { path: "resetpassword", component: ResetpasswordComponent}
 ];
 
 @NgModule({
