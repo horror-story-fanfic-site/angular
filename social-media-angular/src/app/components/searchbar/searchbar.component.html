@@ -1,10 +1,16 @@
 <div ng-app="demo" ng-controller="myCtrl">
-  <!-- <select>
-        <option>Results</option>
-        <option *ngFor="let username of selectedNames" routerLink="/profile/{{username}}">{{username}}</option>
-    </select> -->
+  <select class="select">
+    <option>Results</option>
+    <option
+      *ngFor="let username of selectedNames"
+      routerLink="/profile/{{username}}"
+    >
+      {{username}}
+    </option>
+  </select>
   <mat-form-field appearance="fill">
     <mat-label>Searches</mat-label>
+    <input type="text" placeholder="filter" matInput  id="searchPostBar"/>
     <mat-select>
       <mat-option
         *ngFor="let username of selectedNames"
@@ -13,5 +19,26 @@
       >
     </mat-select>
   </mat-form-field>
-  <input type="text" id="searchPostBar" />
+    <button (click)="pageButtonEvent(-1)" [disabled]="disabled1">&lt;</button>
+    <button (click)="pageButtonEvent(1)" [disabled]="disabled2">&gt;</button>
 </div>
+
+<!-- <form class="example-form">
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Assignee</mat-label>
+    <input
+      type="text"
+      matInput
+      [formControl]="myControl"
+      [matAutocomplete]="auto"
+    />
+    <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+      <mat-option
+        *ngFor="let option of filteredOptions | async"
+        [value]="option"
+      >
+        {{option.name}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</form> -->
