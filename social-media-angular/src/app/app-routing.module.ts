@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { FollowerFeedPageComponent } from './components/follower-feed-page/follower-feed-page.component';
 import { FollowersComponent } from './components/followers/followers.component';
 import { ForgotpasswordComponent } from './components/forgotpassword/forgotpassword.component';
 import { LoginComponent } from './components/login/login.component';
@@ -16,7 +17,8 @@ const routes: Routes = [
   { path: "profile", component: ProfileComponent },
   { path: "stalk", component: ProfileComponent },
   { path: "forgotpassword", component: ForgotpasswordComponent},
-  { path: "resetpassword", component: ResetpasswordComponent}
+  { path: "resetpassword", component: ResetpasswordComponent},
+  { path: "follower-feed", component: FollowerFeedPageComponent}
 ];
 
 @NgModule({
