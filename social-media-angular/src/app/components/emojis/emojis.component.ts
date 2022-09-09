@@ -20,9 +20,9 @@ export class EmojisComponent implements OnInit {
     // )
     console.log(this.posts);
     console.log("Hello");
-    this.posts.forEach(element => {
-      console.log(element);
-    });
+    // this.posts.forEach(element => {
+    //   console.log(element);
+    // });
   }
   
 }

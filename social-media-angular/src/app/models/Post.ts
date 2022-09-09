@@ -1,4 +1,3 @@
-import LikeAPost from "./LikeAPost"
 import User from "./User"
 
 export default class Post {

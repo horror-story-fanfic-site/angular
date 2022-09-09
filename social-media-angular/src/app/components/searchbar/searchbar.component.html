@@ -5,6 +5,7 @@
     </select> -->
   <mat-form-field appearance="fill">
     <mat-label>Searches</mat-label>
+    <input type="text" placeholder="filter" matInput  id="searchPostBar"/>
     <mat-select>
       <mat-option
         *ngFor="let username of selectedNames"
@@ -13,5 +14,6 @@
       >
     </mat-select>
   </mat-form-field>
-  <input type="text" id="searchPostBar" />
+    <button (click)="pageButtonEvent(-1)" [disabled]="disabled1">&lt;</button>
+    <button (click)="pageButtonEvent(1)" [disabled]="disabled2">&gt;</button>
 </div>
