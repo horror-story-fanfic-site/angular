@@ -71,6 +71,7 @@ export class ProfileComponent implements OnInit {
   addFollow() {
     // this.profileService.followPerson("KRichy123").subscribe((data) => (
     this.profileService.followPerson(this.follow).subscribe((data) => (
+    //this.profileService.followPerson("Username").subscribe((data) => (
       console.log(data.username)
     ))
   }
