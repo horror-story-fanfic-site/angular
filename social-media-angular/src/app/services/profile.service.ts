@@ -12,6 +12,7 @@ export class ProfileService {
   private getProfileUrl = `${environment.baseUrl}/user/viewUser`;
   private updateUsernameUrl = `${environment.baseUrl}/user/updateusername`;
   private updateDescriptionUrl = `${environment.baseUrl}/user/updatedescription`
+  private udateDOBUrl = `${environment.baseUrl}/user/changeBirthday`
 
 
   constructor(private http: HttpClient) { }
@@ -35,6 +36,17 @@ export class ProfileService {
 
     return this.http.put<string>(`${this.updateDescriptionUrl}`, params, {headers: environment.paramHeaders, 
     withCredentials: environment.withCredentials} );
+  }
+
+  updateDOB(newBirthDay: string, newBirthMonth: string, newBirthYear: string) {
+
+    let params = new HttpParams()
+      .set('newBirthDay', newBirthDay)
+      .set('newBirthMonth', newBirthMonth)
+      .set( 'newBirthYear', newBirthYear);
+
+    return this.http.put<string>(`${this.udateDOBUrl}`, params, {headers: environment.paramHeaders, 
+      withCredentials: environment.withCredentials} )
   }
 
 }

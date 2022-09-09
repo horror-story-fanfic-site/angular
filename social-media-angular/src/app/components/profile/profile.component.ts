@@ -14,6 +14,9 @@ export class ProfileComponent implements OnInit {
   // inputs for forms
   usernameSubmit: string;
   descriptionSubmit: string;
+  birthDaySubmit: number;
+  birthMonthSubmit: number;
+  birthYearSubmit: number;
 
   constructor(private profileService: ProfileService) { }
 
@@ -44,4 +47,16 @@ export class ProfileComponent implements OnInit {
     //after the submit, clear the form
     this.descriptionSubmit = "";
   }
+  
+  updateDOBSubmit() {
+
+    this.profileService.updateDOB(
+      `${this.birthDaySubmit}`,
+      `${this.birthMonthSubmit}`,
+      `${this.birthYearSubmit}`
+    ).subscribe((response) => (
+      console.log("birthday changed")
+    ))
+  }
+
 }

@@ -28,6 +28,33 @@
     <input type="submit" value="Submit">
 </form>
 
+<form (ngSubmit)="updateDOBSubmit()">
+    <label for="DOBSubmit">New Birthday:</label>
+    <input 
+        type="number"
+        name="birthDaySubmit"
+        id="DOBSubmit"
+        placeholder="New Day"
+        [(ngModel)]="birthDaySubmit"
+    >
+    <input 
+        type="number"
+        name="birthMonthSubmit"
+        id="DOBSubmit"
+        placeholder="New Month"
+        [(ngModel)]="birthMonthSubmit"
+    >
+    <input 
+        type="number" 
+        name="birthYearSubmit"
+        id="DOBSubmit"
+        placeholder="New Year"
+        [(ngModel)]="birthYearSubmit"
+    >
+    <input type="submit" value="Submit">
+
+</form>
+
 <mat-list>
     <mat-list-item> {{profile.birthDay}} </mat-list-item>
     <mat-list-item> {{profile.birthMonth}} </mat-list-item>
