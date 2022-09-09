@@ -21,6 +21,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { FollowersComponent } from './components/followers/followers.component';
 import { ForgotpasswordComponent } from './components/forgotpassword/forgotpassword.component';
 import { ResetpasswordComponent } from './components/resetpassword/resetpassword.component';
+import { EmojisComponent } from './components/emojis/emojis.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { ResetpasswordComponent } from './components/resetpassword/resetpassword
     SidebarComponent,
     FollowersComponent,
     ForgotpasswordComponent,
-    ResetpasswordComponent
+    ResetpasswordComponent,
+    EmojisComponent
   ],
   imports: [
     BrowserModule,
