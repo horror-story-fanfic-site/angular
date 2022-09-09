@@ -58,5 +58,5 @@ export class ProfileComponent implements OnInit {
       console.log("birthday changed")
     ))
   }
-
+  
 }
