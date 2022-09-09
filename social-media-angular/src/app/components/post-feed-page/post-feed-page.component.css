@@ -1,0 +1,10 @@
+.form {
+    background: -webkit-linear-gradient(left, #EBEBEB, #d8d8d8e1);
+    border-radius: 25px;
+    padding: 20px;
+    max-width: 58%;
+}
+
+mat-label{
+    color: #4A4A4A;
+}
