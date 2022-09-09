@@ -19,7 +19,12 @@ export class PostService {
   
 
   getAllPosts(): Observable<Post[]> {
-    this.postData = this.http.get<Post[]>(`${this.postUrl}`, {headers: environment.headers, withCredentials: environment.withCredentials} )
+    this.postData = this.http.get<Post[]>(`${this.postUrl}`, {headers: environment.headers, withCredentials: environment.withCredentials})
+    return this.postData;
+  }
+
+  getFollowerPosts(): Observable<Post[]> {
+    this.postData = this.http.get<Post[]>(`${this.postUrl}/followposts`, {headers: environment.headers, withCredentials: environment.withCredentials})
     return this.postData;
   }
 
