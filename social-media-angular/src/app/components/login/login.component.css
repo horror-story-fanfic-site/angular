@@ -8,6 +8,7 @@ a {
   body {
     background: -webkit-linear-gradient(bottom, #2dbd6e, #a6f77b);
     background-repeat: no-repeat;
+    overflow: hidden;
   }
   label {
     font-family: "Raleway", sans-serif;
