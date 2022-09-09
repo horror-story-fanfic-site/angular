@@ -4,6 +4,18 @@
 <div>{{profile.username}}</div>
 <div>{{profile.description}}</div>
 
+<form (ngSubmit)="updateUsernameSubmit()">
+    <label for="usernameSubmit">New Username:</label>
+    <input 
+        type="text" 
+        name="usernameSubmit"
+        id="usernameSubmit"
+        placeholder="New Username"
+        [(ngModel)] = "usernameSubmit"
+    />
+    <input type="submit" value="Submit">
+</form>
+
 <mat-list>
     <mat-list-item> {{profile.birthDay}} </mat-list-item>
     <mat-list-item> {{profile.birthMonth}} </mat-list-item>

@@ -11,6 +11,9 @@ export class ProfileComponent implements OnInit {
 
   @Input() profile: Profile;
 
+  // inputs for forms
+  usernameSubmit: string;
+
   constructor(private profileService: ProfileService) { }
 
   ngOnInit(): void {
@@ -21,6 +24,13 @@ export class ProfileComponent implements OnInit {
 
   }
   
+  updateUsernameSubmit() {
+    console.log("in profile.ts:", this.usernameSubmit);
+    this.profileService.updateUsername(this.usernameSubmit).subscribe((response) => (
+      console.log("subscribed")//todo: change to show new name on profile
+    ));
+    
+    //after the submit, clear the form
+    this.usernameSubmit = "";
+  }
 }
-
-console.log("In profile component");
