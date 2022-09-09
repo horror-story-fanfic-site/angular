@@ -6,12 +6,14 @@ export default class Post {
     imageUrl: string
     author: User
     comments: Post[]
+    profilePic: string
 
-    constructor (id: number, text: string, imageUrl: string, author: User, comments: Post[]) {
+    constructor (id: number, text: string, imageUrl: string, author: User, comments: Post[], profilePic: User["profilePic"]) {
         this.id = id
         this.text = text
         this.imageUrl = imageUrl
         this.author = author
         this.comments = comments
+        this.profilePic = profilePic
     }
 }
