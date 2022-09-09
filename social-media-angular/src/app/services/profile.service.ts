@@ -10,9 +10,9 @@ import { environment } from 'src/environments/environment';
 export class ProfileService {
 
   private getProfileUrl = `${environment.baseUrl}/user/viewUser`;
-  // private getProfileUrl = '/user/peek';
-
   private updateUsernameUrl = `${environment.baseUrl}/user/updateusername`;
+  private updateDescriptionUrl = `${environment.baseUrl}/user/updatedescription`
+
 
   constructor(private http: HttpClient) { }
 
@@ -27,6 +27,14 @@ export class ProfileService {
     let params = new HttpParams().set('newUsername', newUsername);
 
     return this.http.put<string>(`${this.updateUsernameUrl}`, params, {headers: environment.paramHeaders, withCredentials: environment.withCredentials} );
+  }
+
+  updateDescription(newDescription: string) {
+
+    let params = new HttpParams().set('newDescription', newDescription);
+
+    return this.http.put<string>(`${this.updateDescriptionUrl}`, params, {headers: environment.paramHeaders, 
+    withCredentials: environment.withCredentials} );
   }
 
 }

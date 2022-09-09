@@ -13,6 +13,7 @@ export class ProfileComponent implements OnInit {
 
   // inputs for forms
   usernameSubmit: string;
+  descriptionSubmit: string;
 
   constructor(private profileService: ProfileService) { }
 
@@ -27,10 +28,20 @@ export class ProfileComponent implements OnInit {
   updateUsernameSubmit() {
     console.log("in profile.ts:", this.usernameSubmit);
     this.profileService.updateUsername(this.usernameSubmit).subscribe((response) => (
-      console.log("subscribed")//todo: change to show new name on profile
+      this.profile.username = this.usernameSubmit
     ));
     
     //after the submit, clear the form
     this.usernameSubmit = "";
+  }
+
+  updateDescriptionSubmit() {
+
+    this.profileService.updateDescription(this.descriptionSubmit).subscribe((response) => (
+      this.profile.description = this.descriptionSubmit
+    ));
+
+    //after the submit, clear the form
+    this.descriptionSubmit = "";
   }
 }
