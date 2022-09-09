@@ -1,7 +1,7 @@
 <div ng-app="demo" ng-controller="myCtrl">
     <select>
         <option>Results</option>
-        <option *ngFor="let username of selectedNames">{{username}}</option>
+        <option *ngFor="let username of selectedNames" routerLink="/profile/{{username}}">{{username}}</option>
     </select>
     <input type="text"id="searchPostBar">
     <button (click)="pageButtonEvent(-1)" [disabled]="disabled1">&lt;</button>
