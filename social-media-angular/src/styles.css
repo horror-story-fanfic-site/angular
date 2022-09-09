@@ -12,7 +12,8 @@ body {
   margin: 0;
   font-family: Archivo, "Archivo";
   min-height: 100vh;
-  background-color: #4A4A4A;
+  background-image: linear-gradient(to right, #434343 0%, black 100%);
+  
 }
 .app-header {
   justify-content: space-between;
