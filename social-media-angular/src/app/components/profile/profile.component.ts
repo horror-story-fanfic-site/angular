@@ -2,7 +2,6 @@ import { Component, Input, OnInit } from '@angular/core';
 import Profile from 'src/app/models/Profile';
 import { ProfileService } from 'src/app/services/profile.service';
 import { Router } from '@angular/router';
-import User from 'src/app/models/User';
 
 @Component({
   selector: 'app-profile',
@@ -10,8 +9,6 @@ import User from 'src/app/models/User';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-
-  currentUser?: User;
 
   @Input() profile: Profile;
 
@@ -72,13 +69,11 @@ export class ProfileComponent implements OnInit {
   }
 
   addFollow() {
-    // this.profileService.followPerson(this.follow).subscribe((data) => (
-    this.profileService.followPerson("Username").subscribe(
-      (data) => {
-      console.log(data);
-      console.log(data.username);
-      this.currentUser=data;
-  })
+    // this.profileService.followPerson("KRichy123").subscribe((data) => (
+    this.profileService.followPerson(this.follow).subscribe((data) => (
+    //this.profileService.followPerson("Username").subscribe((data) => (
+      console.log(data.username)
+    ))
   }
 
 }
