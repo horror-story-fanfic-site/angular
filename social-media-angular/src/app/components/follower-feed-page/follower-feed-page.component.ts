@@ -27,9 +27,11 @@ export class FollowerFeedPageComponent implements OnInit {
   constructor(private postService: PostService, private authService: AuthService, private localStorage: LocalService, private app: AppComponent) { }
 
   ngOnInit(): void {
+    console.log("in onInit")
     this.postService.getFollowerPosts().subscribe(
       (response) => {
         this.posts = response
+        console.log(this.posts);
       }
     )
   }

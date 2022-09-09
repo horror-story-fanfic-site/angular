@@ -31,6 +31,7 @@ export class PostFeedPageComponent implements OnInit {
     this.postService.getAllPosts().subscribe(
       (response) => {
         this.posts = response
+        console.log(this.posts)
       }
     )
 
