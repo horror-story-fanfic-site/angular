@@ -10,14 +10,15 @@ import { PostService } from 'src/app/services/post.service';
 export class EmojisComponent implements OnInit {
 
   constructor(private postService: PostService) { }
-  posts: Post[] = [];
+  posts: Post[]=this.postService.postData;
 
   ngOnInit(): void {
-    this.postService.getAllPosts().subscribe(
-      (response) => {
-        this.posts = response
-      }
-    )
+    // this.postService.getAllPosts().subscribe(
+    //   (response) => {
+    //     this.posts = response
+    //   }
+    // )
+    console.log(this.posts);
     console.log("Hello");
     this.posts.forEach(element => {
       console.log(element);
