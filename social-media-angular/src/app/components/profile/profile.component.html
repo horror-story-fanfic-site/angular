@@ -3,7 +3,7 @@
 
 <div>{{profile.username}}</div>
 <div>{{profile.description}}</div>
-
+<!--<i class="icon" [ngClass]="classes"></i>-->
 <form (ngSubmit)="updateUsernameSubmit()" *ngIf="checkRoute()">
     <label for="usernameSubmit">New Username:</label>
     <input 
@@ -60,4 +60,4 @@
     <mat-list-item> {{profile.birthMonth}} </mat-list-item>
     <mat-list-item> {{profile.birthYear}} </mat-list-item>
    </mat-list>
-   
+   <body class="profile"></body>

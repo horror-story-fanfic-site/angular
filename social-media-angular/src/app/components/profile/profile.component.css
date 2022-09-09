@@ -1,0 +1,15 @@
+
+.profile {
+    background-image: url("https://wallpaperaccess.com/full/38141.jpg");
+    background-size:cover;
+}
+.profile {
+    width:20;
+    text-align:center;
+    background-color: azure;
+    padding-left: 5px;
+    padding-right: 2px;
+}
+a {
+    text-decoration: none;
+  }
