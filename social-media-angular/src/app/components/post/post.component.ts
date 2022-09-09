@@ -24,6 +24,7 @@ export class PostComponent implements OnInit {
     
   }
 
+
   toggleReplyToPost = () => {
     this.replyToPost = !this.replyToPost
   }
