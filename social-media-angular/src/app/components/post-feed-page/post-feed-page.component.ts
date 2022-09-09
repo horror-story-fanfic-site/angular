@@ -1,5 +1,7 @@
-import { ChangeDetectorRef, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, Injectable, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { repeat } from 'rxjs';
+import { AppComponent } from 'src/app/app.component';
 import Post from 'src/app/models/Post';
 import User from 'src/app/models/User';
 import { AuthService } from 'src/app/services/auth.service';
@@ -21,8 +23,9 @@ export class PostFeedPageComponent implements OnInit {
 
   posts: Post[] = [];
   createPost:boolean = false;
+  currentUser: User = this.app.currentUser;
 
-  constructor(private postService: PostService, private authService: AuthService, private localStore: LocalService) { }
+  constructor(private postService: PostService, private authService: AuthService, private localStorage: LocalService, private app: AppComponent) { }
 
   ngOnInit(): void {
     this.postService.getAllPosts().subscribe(
@@ -30,13 +33,7 @@ export class PostFeedPageComponent implements OnInit {
         this.posts = response
       }
     )
-    this.localStore.saveData("posts", this.posts);
-    
-    
-  }
 
-  public saveData(key: string, value: any){
-    localStorage.setItem("posts", JSON.stringify(this.posts));
   }
 
   toggleCreatePost = () => {
