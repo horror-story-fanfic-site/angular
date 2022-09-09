@@ -42,7 +42,7 @@ export class PostFeedPageComponent implements OnInit {
 
   submitPost = (e: any) => {
     e.preventDefault();
-    this.postService.upsertPost(new Post(0, this.postForm.value.text || "", this.postForm.value.imageUrl || "", this.authService.currentUser, []))
+    this.postService.upsertPost(new Post(0, this.postForm.value.text || "", this.postForm.value.imageUrl || "", this.authService.currentUser, [], this.authService.currentUser.profilePic || ""))
       .subscribe(
         (response) => {
           this.posts = [response, ...this.posts]
