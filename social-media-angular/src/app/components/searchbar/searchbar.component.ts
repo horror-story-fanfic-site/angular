@@ -40,7 +40,7 @@ export class SearchbarComponent implements OnInit {
   disabled2: boolean=true;
   private refreshSearch(){
     this.intervalId = window.setInterval(()=>{
-      let search: String | undefined=(document.getElementById("searchPostBar") as HTMLInputElement).value;
+      let search: String | undefined=(document.getElementById("searchPostBar") as HTMLInputElement).value.toLowerCase();
       if (search!=this.oldSearch){
         this.usernames=[];
         this.selectedNames=[];
