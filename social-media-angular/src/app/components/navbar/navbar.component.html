@@ -1,11 +1,11 @@
 <p>
     <mat-toolbar>
         <span [routerLink]="['/post-feed']"></span>
-        <button mat-button >Menu</button>
+        <span> Welcome, {{user.username}}</span>
         <span class="spacer"></span>
         <span>Logo Goes Here</span>
         <span class="spacer"></span>
-        <span>Welcome, {{user.username}}</span>
+        <span>Nathan's Search Bar</span>
         <button mat-button (click)="logout();">Logout</button>
     </mat-toolbar>
 </p>
