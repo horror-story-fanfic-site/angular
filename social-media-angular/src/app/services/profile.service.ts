@@ -3,6 +3,7 @@ import {HttpClient, HttpParams, HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import Profile from '../models/Profile';
 import { environment } from 'src/environments/environment';
+import User from '../models/User';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,7 @@ export class ProfileService {
   private updateUsernameUrl = `${environment.baseUrl}/user/updateusername`;
   private updateDescriptionUrl = `${environment.baseUrl}/user/updatedescription`
   private udateDOBUrl = `${environment.baseUrl}/user/changeBirthday`
+  private followUrl =`${environment.baseUrl}/followers/follow`;
 
 
   constructor(private http: HttpClient) { }
@@ -47,6 +49,17 @@ export class ProfileService {
 
     return this.http.put<string>(`${this.udateDOBUrl}`, params, {headers: environment.paramHeaders, 
       withCredentials: environment.withCredentials} )
+  }
+
+  followPerson(username: string){
+
+    let obj = {
+      "userName": username
+    }
+
+    return this.http.post<User>(`${this.followUrl}`, JSON.stringify(obj), {headers: environment.headers, 
+      withCredentials: environment.withCredentials} )
+
   }
 
 }
