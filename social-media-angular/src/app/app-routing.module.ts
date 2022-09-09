@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { FollowersComponent } from './components/followers/followers.component';
 import { ForgotpasswordComponent } from './components/forgotpassword/forgotpassword.component';
 import { LoginComponent } from './components/login/login.component';
 import { PostFeedPageComponent } from './components/post-feed-page/post-feed-page.component';

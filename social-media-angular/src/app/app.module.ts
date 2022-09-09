@@ -15,6 +15,7 @@ import { CommentComponent } from './components/comment/comment.component';
 import { UserCardComponent } from './components/user-card/user-card.component';
 import { UserInitialsPipe } from './pipes/user-initials.pipe';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { SearchbarComponent } from './components/searchbar/searchbar.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { FollowersComponent } from './components/followers/followers.component';
 import { ForgotpasswordComponent } from './components/forgotpassword/forgotpassword.component';
@@ -31,10 +32,14 @@ import { ResetpasswordComponent } from './components/resetpassword/resetpassword
     UserCardComponent,
     NavbarComponent,
     UserInitialsPipe,
+<<<<<<< HEAD
     FollowersComponent,
     ForgotpasswordComponent,
     ResetpasswordComponent,
     ProfileComponent,
+=======
+    SearchbarComponent,
+>>>>>>> f56204f512a4f79d00cc12f3f8240a2e702343b6
     ProfileComponent,
     FollowersComponent,
     ForgotpasswordComponent,
