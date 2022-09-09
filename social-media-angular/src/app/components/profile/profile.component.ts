@@ -23,9 +23,12 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
 
-    // this.profileService.getProfile();
-    this.profileService.getProfile().subscribe((profile) => (
-      this.profile = profile));
+    if( this.checkRoute() ) {
+      this.profileService.getProfile().subscribe((profile) => (
+        this.profile = profile));
+    }else{
+      //add service to go to another profile
+    }
 
   }
   
