@@ -55,6 +55,11 @@
 
 </form>
 
+<!-- //follow button -->
+<button (click)="addFollow()" *ngIf = "checkRoute() != true" >Follow
+    
+</button>
+
 <mat-list>
     <mat-list-item> {{profile.birthDay}} </mat-list-item>
     <mat-list-item> {{profile.birthMonth}} </mat-list-item>
