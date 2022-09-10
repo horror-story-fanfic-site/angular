@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UsersService } from 'src/app/services/users.service'; 
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-searchbar',
@@ -12,12 +13,13 @@ export class SearchbarComponent implements OnInit {
 
   usernameToSearch: string;
   
-  constructor(private usersService: UsersService) {
+  constructor(private usersService: UsersService, private router: Router) {
     
   }
   usernameList: String[];
   ngOnInit(): void {
-    this.refreshSearch();
+      this.refreshSearch();
+    
     this.usersService.getAllUserNames().subscribe(
       (response) => {
         this.usernameList=response;
@@ -41,7 +43,7 @@ export class SearchbarComponent implements OnInit {
   disabled2: boolean=true;
   private refreshSearch(){
     this.intervalId = window.setInterval(()=>{
-      let search: String | undefined=(document.getElementById("searchPostBar") as HTMLInputElement).value.toLowerCase();
+      let search: String | undefined =(document.getElementById("searchPostBar") as HTMLInputElement).value.toLowerCase();
       if (search!=this.oldSearch){
         this.usernames=[];
         this.selectedNames=[];
