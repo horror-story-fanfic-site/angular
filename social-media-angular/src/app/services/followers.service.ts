@@ -11,7 +11,7 @@ export class FollowersService {
 
   followUrl: string = `${environment.baseUrl}/followers`;
   toFollowUser: User;//subject to change depending on dtos
-  followList: Array<User>;//subject to chandge depending on dtos 
+  followList: Array<string>;//subject to chandge depending on dtos 
 
   constructor(private http: HttpClient) { }
 

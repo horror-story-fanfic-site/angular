@@ -1,0 +1,20 @@
+#searchPostBar{
+    border-radius: 5px;
+    border: black;
+    margin-top: 18px;
+    height: 27px;
+}
+.select {
+    transform: translateX(190px);
+    border-radius: 5px;
+    
+}
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }

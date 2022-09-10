@@ -2,6 +2,9 @@ import { Component, Input, OnInit } from '@angular/core';
 import Profile from 'src/app/models/Profile';
 import { ProfileService } from 'src/app/services/profile.service';
 import { Router } from '@angular/router';
+import User from 'src/app/models/User';
+import { AppComponent } from 'src/app/app.component';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-profile',
@@ -20,16 +23,25 @@ export class ProfileComponent implements OnInit {
   birthYearSubmit: number;
   follow: string;
 
-  constructor(private profileService: ProfileService, private router: Router ) { }
+  currentUser: User;
+
+  constructor(private profileService: ProfileService, private router: Router, private auth: AuthService ) { }
 
   ngOnInit(): void {
-
-    //if( this.checkRoute() ) {
+    this.auth.checkSession(this.currentUser);
+    if( this.checkRoute() ) {
       this.profileService.getProfile().subscribe((profile) => (
         this.profile = profile));
-    //}else{
-      //add service to go to another profile
-    //}
+    }else{
+
+      //get the user who we want to see using the router
+      let route = this.router.url;
+      let routeSplit: string[] = route.split("/");
+      console.log("find:", routeSplit[2]);
+      
+      this.profileService.getAnotherPersonsProfile(routeSplit[2]).subscribe((profile) => 
+        this.profile = profile );
+    }
 
   }
   
@@ -40,7 +52,7 @@ export class ProfileComponent implements OnInit {
     ));
     
     //after the submit, clear the form
-    this.usernameSubmit = "";
+    // this.usernameSubmit = "";
   }
 
   updateDescriptionSubmit() {
@@ -50,7 +62,7 @@ export class ProfileComponent implements OnInit {
     ));
 
     //after the submit, clear the form
-    this.descriptionSubmit = "";
+    // this.descriptionSubmit = "";
   }
   
   updateDOBSubmit() {
@@ -69,7 +81,11 @@ export class ProfileComponent implements OnInit {
   }
 
   addFollow() {
-    this.profileService.followPerson(this.follow).subscribe((data) => (
+    console.log(this.profile.username);
+
+    // this.profileService.followPerson("KRichy123").subscribe((data) => (
+    this.profileService.followPerson(this.profile.username).subscribe((data) => (
+    //this.profileService.followPerson("Username").subscribe((data) => (
       console.log(data.username)
     ))
   }
