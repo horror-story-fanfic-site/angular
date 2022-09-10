@@ -5,8 +5,7 @@
     <mat-select>
       <mat-option
         *ngFor="let username of selectedNames"
-        routerLink="/profile/{{username}}"
-        [(ngModel)] = "usernameToSearch"
+        routerLink="/view/{{username}}"
         >{{username}}</mat-option>
     </mat-select>
   </mat-form-field>

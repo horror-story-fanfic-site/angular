@@ -15,9 +15,10 @@ export class ProfileService {
   private updateDescriptionUrl = `${environment.baseUrl}/user/updatedescription`
   private udateDOBUrl = `${environment.baseUrl}/user/changeBirthday`
   private followUrl =`${environment.baseUrl}/followers/follow`;
+  private anotherPersonsProfileUrl = `${environment.baseUrl}/user/peek`;
 
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient ) { }
 
   getProfile(): Observable<Profile> {
 
@@ -60,6 +61,11 @@ export class ProfileService {
     return this.http.post<User>(`${this.followUrl}`, JSON.stringify(obj), {headers: environment.headers, 
       withCredentials: environment.withCredentials} )
 
+  }
+
+  getAnotherPersonsProfile(username: string): Observable<Profile> {
+
+    return this.http.get<Profile>(`${this.anotherPersonsProfileUrl}/${username}`, {headers: environment.paramHeaders, withCredentials: environment.withCredentials});
   }
 
 }

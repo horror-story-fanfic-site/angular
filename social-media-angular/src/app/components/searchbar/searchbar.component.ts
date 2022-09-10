@@ -11,7 +11,6 @@ import { Router } from '@angular/router';
 
 export class SearchbarComponent implements OnInit {
 
-  usernameToSearch: string;
   
   constructor(private usersService: UsersService, private router: Router) {
     
