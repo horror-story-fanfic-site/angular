@@ -29,12 +29,19 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.auth.checkSession(this.currentUser);
-    //if( this.checkRoute() ) {
+    if( this.checkRoute() ) {
       this.profileService.getProfile().subscribe((profile) => (
         this.profile = profile));
-    //}else{
-      //add service to go to another profile
-    //}
+    }else{
+
+      //get the user who we want to see using the router
+      let route = this.router.url;
+      let routeSplit: string[] = route.split("/");
+      console.log("find:", routeSplit[2]);
+      
+      this.profileService.getAnotherPersonsProfile(routeSplit[2]).subscribe((profile) => 
+        this.profile = profile );
+    }
 
   }
   
@@ -74,8 +81,10 @@ export class ProfileComponent implements OnInit {
   }
 
   addFollow() {
+    console.log(this.profile.username);
+
     // this.profileService.followPerson("KRichy123").subscribe((data) => (
-    this.profileService.followPerson(this.follow).subscribe((data) => (
+    this.profileService.followPerson(this.profile.username).subscribe((data) => (
     //this.profileService.followPerson("Username").subscribe((data) => (
       console.log(data.username)
     ))
