@@ -2,6 +2,8 @@ import { Component, Input, OnInit } from '@angular/core';
 import Profile from 'src/app/models/Profile';
 import { ProfileService } from 'src/app/services/profile.service';
 import { Router } from '@angular/router';
+import User from 'src/app/models/User';
+import { AppComponent } from 'src/app/app.component';
 
 @Component({
   selector: 'app-profile',
@@ -19,10 +21,13 @@ export class ProfileComponent implements OnInit {
   birthMonthSubmit: number;
   birthYearSubmit: number;
   follow: string;
+  currentUser: User = this.app.currentUser;
 
-  constructor(private profileService: ProfileService, private router: Router ) { }
+  constructor(private profileService: ProfileService, private router: Router, private app: AppComponent ) { }
 
   ngOnInit(): void {
+
+    this.app.checkSession();
 
     //if( this.checkRoute() ) {
       this.profileService.getProfile().subscribe((profile) => (
@@ -40,7 +45,7 @@ export class ProfileComponent implements OnInit {
     ));
     
     //after the submit, clear the form
-    this.usernameSubmit = "";
+    // this.usernameSubmit = "";
   }
 
   updateDescriptionSubmit() {
@@ -50,7 +55,7 @@ export class ProfileComponent implements OnInit {
     ));
 
     //after the submit, clear the form
-    this.descriptionSubmit = "";
+    // this.descriptionSubmit = "";
   }
   
   updateDOBSubmit() {
