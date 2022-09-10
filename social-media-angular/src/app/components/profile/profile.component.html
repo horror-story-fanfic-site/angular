@@ -1,4 +1,4 @@
-
+<app-sidebar></app-sidebar>
 <body class="profile">
  <div id="card">
     <div id="card-content">
@@ -66,6 +66,15 @@
 </div>
  </div>
 </body>
+
+<button
+    *ngIf="checkRoute() != true"
+    (click)="addFollow()"
+>Follow</button>
+
+{{profile.username}}
+{{1+4}}
+
 <mat-list>
     <mat-list-item> {{profile.birthDay}} </mat-list-item>
     <mat-list-item> {{profile.birthMonth}} </mat-list-item>

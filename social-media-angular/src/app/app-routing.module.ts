@@ -15,7 +15,7 @@ const routes: Routes = [
   { path: "register", component: RegisterComponent },
   { path: "post-feed", component: PostFeedPageComponent},
   { path: "profile", component: ProfileComponent },
-  { path: "stalk", component: ProfileComponent },
+  { path: "view/:username", component: ProfileComponent },
   { path: "forgotpassword", component: ForgotpasswordComponent},
   { path: "resetpassword", component: ResetpasswordComponent},
   { path: "follower-feed", component: FollowerFeedPageComponent}

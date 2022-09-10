@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UsersService } from 'src/app/services/users.service'; 
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-searchbar',
@@ -10,19 +11,18 @@ import { Observable } from 'rxjs';
 
 export class SearchbarComponent implements OnInit {
 
-  usernameToSearch: string;
   
-  constructor(private usersService: UsersService) {
+  constructor(private usersService: UsersService, private router: Router) {
     
   }
   usernameList: String[];
   ngOnInit(): void {
-    this.refreshSearch();
     this.usersService.getAllUserNames().subscribe(
       (response) => {
         this.usernameList=response;
       }
     )
+    // this.refreshSearch(); for if we add a dedicated page.
   }
 
   ngDestroy(): void{
@@ -34,27 +34,23 @@ export class SearchbarComponent implements OnInit {
   intervalId=0;
   usernames: String[]=[];
   selectedNames: String[]=[];
-  oldSearch: String | undefined;
   page: number=0;
   pageAmount: number=6;
   disabled1: boolean=true;
   disabled2: boolean=true;
-  private refreshSearch(){
-    this.intervalId = window.setInterval(()=>{
-      let search: String | undefined=(document.getElementById("searchPostBar") as HTMLInputElement).value.toLowerCase();
-      if (search!=this.oldSearch){
-        this.usernames=[];
-        this.selectedNames=[];
-        this.usernames=this.search(search);
-        this.select(0, this.pageAmount);
-        this.oldSearch=search;
-      }
-    }, 1000);
+
+  refreshSearch(){
+    let search: String | undefined=(document.getElementById("searchPostBar") as HTMLInputElement).value.toLowerCase();
+    console.log(search);
+    this.usernames=[];
+    this.usernames=this.lookUp(search);
+    this.selectedNames=[];
+    this.select(0, this.pageAmount);
   }
 
   /**This is the end point for search bar.
   * Determines it by characters and follows their order.*/
-  search(search: String | undefined): String[]{
+  lookUp(search: String | undefined): String[]{
     this.page=0;
     //This checks if it is empty.
     //TODO make sure this works.
