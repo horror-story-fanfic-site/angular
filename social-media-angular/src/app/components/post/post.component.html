@@ -27,16 +27,17 @@
       <button class="btn" mat-raised-button color="primary" (click)="followUser()">Subscribe</button>
       <button class="btn" mat-raised-button color="primary" (click)="toggleReplyToPost()">Reply</button>
     </mat-card-actions>
+    
     <form class="form" *ngIf="replyToPost" [formGroup]="commentForm" (ngSubmit)="submitReply($event)">
-      <mat-form-field class="full-width" appearance="fill">
+      <mat-form-field class="reply" appearance="fill">
         <mat-label>Make a Post</mat-label>
         <textarea matInput autofocus formControlName="text"></textarea>
       </mat-form-field>
-      <div align="end">
-        <button mat-raised-button color="warn" (click)="toggleReplyToPost()">
+      <div align="end" class="reply-card">
+        <button class="reply-btn" mat-raised-button color="warn" (click)="toggleReplyToPost()">
           Cancel
         </button>
-        <button mat-raised-button color="primary" type="submit">Post</button>
+        <button class="reply-btn" mat-raised-button color="primary" type="submit">Post</button>
       </div>
     </form>
   </mat-card>

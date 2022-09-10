@@ -6,6 +6,11 @@
     background: -webkit-linear-gradient(right, #a6f77b, #2ec06f);
 }
 
+.reply-btn {
+    margin-left: .5%;
+    margin-right: .5%;
+}
+
 .image {
     max-width: 45rem;
     height: auto;
@@ -37,7 +42,15 @@
     padding-left: 0;
 }
 .button-card {
-    margin-right: 2%;
+    margin-right: 1%;
+}
+
+.reply {
+    width: 45rem;
+}
+
+.reply-card {
+    margin-right: 1%;
 }
 
 
