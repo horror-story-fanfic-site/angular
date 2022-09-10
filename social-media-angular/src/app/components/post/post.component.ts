@@ -18,7 +18,8 @@ export class PostComponent implements OnInit {
   })
 
   @Input('post') post: Post
-  replyToPost: boolean = false
+  replyToPost: boolean = false;
+  toggleEmoji: boolean = false;
 
   constructor(private postService: PostService, private authService: AuthService, private followService: FollowersService) { }
 
@@ -33,6 +34,10 @@ export class PostComponent implements OnInit {
   
   toggleReplyToPost = () => {
     this.replyToPost = !this.replyToPost
+  }
+
+  toggleEmojis = () => {
+    this.toggleEmoji = !this.toggleEmoji;
   }
 
   submitReply = (e: any) => {

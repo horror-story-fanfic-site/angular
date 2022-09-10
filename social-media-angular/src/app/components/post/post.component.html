@@ -1,43 +1,33 @@
 <div class="post-card">
-  <mat-card>
-    <mat-card-header>
-      <img mat-card-avatar src="{{ post.author.profilePic}}" alt="" />
-      <mat-card-title>{{post.author.username}}</mat-card-title>
-      <!-- <mat-card-subtitle>{{post.author.email}}</mat-card-subtitle> -->
-    </mat-card-header>
-    <img
-      mat-card-image
-      *ngIf="post.imageUrl"
-      src="{{ post.imageUrl }}"
-      alt="Post Image"
-    />
-    <mat-card-content>
-      <p>
-        {{post.text}}
-      </p>
-      <div *ngFor="let comment of post.comments" class="comment-container">
-        <mat-divider></mat-divider>
-        <app-comment [comment]="comment"></app-comment>
-      </div>
-    </mat-card-content>
-    <mat-card-actions align="end">
-      <button class="btn" mat-raised-button color="primary">Like</button>
+
+  <mat-card class="fix-card">
+    <section class="banner">
+      <mat-card-header>
+        <img mat-card-avatar src="{{ post.author.profilePic}}" alt="" />
+        <div class="username">
+          <mat-card-title>{{post.author.username}}</mat-card-title>
+        </div>
+        <!-- <mat-card-subtitle>{{post.author.email}}</mat-card-subtitle> -->
+      </mat-card-header>
+    </section>
+    <img class="image" mat-card-image *ngIf="post.imageUrl" src="{{ post.imageUrl }}" alt="Post Image" />
+    <section class="post-text">
+      <mat-card-content>
+        <p>
+          {{post.text}}
+        </p>
+        <div *ngFor="let comment of post.comments" class="comment-container">
+          <mat-divider></mat-divider>
+          <app-comment [comment]="comment"></app-comment>
+        </div>
+      </mat-card-content>
+    </section>
+    <mat-card-actions align="end" class="button-card">
+      <button class="btn" mat-raised-button color="primary" (click)="toggleEmojis()">Like</button>
       <button class="btn" mat-raised-button color="primary" (click)="followUser()">Subscribe</button>
-      <button
-        class="btn"
-        mat-raised-button
-        color="primary"
-        (click)="toggleReplyToPost()"
-      >
-        Reply
-      </button>
+      <button class="btn" mat-raised-button color="primary" (click)="toggleReplyToPost()">Reply</button>
     </mat-card-actions>
-    <form
-      class="form"
-      *ngIf="replyToPost"
-      [formGroup]="commentForm"
-      (ngSubmit)="submitReply($event)"
-    >
+    <form class="form" *ngIf="replyToPost" [formGroup]="commentForm" (ngSubmit)="submitReply($event)">
       <mat-form-field class="full-width" appearance="fill">
         <mat-label>Make a Post</mat-label>
         <textarea matInput autofocus formControlName="text"></textarea>
