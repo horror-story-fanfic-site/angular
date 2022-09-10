@@ -11,6 +11,23 @@
     margin-right: .5%;
 }
 
+.emoji-img {
+    width: 2rem;
+    height: 2rem;
+}
+
+.emoji-box {
+    position: relative;
+    right: 10;
+    display: inline-block;    
+    
+}
+
+.emoji-btn {
+    border-style: none;
+    color: white;
+}
+
 .image {
     max-width: 45rem;
     height: auto;
@@ -41,6 +58,7 @@
     padding-right: 0;
     padding-left: 0;
 }
+
 .button-card {
     margin-right: 1%;
 }
@@ -52,5 +70,3 @@
 .reply-card {
     margin-right: 1%;
 }
-
-
