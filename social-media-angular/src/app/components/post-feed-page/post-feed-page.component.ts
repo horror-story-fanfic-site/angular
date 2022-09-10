@@ -23,11 +23,12 @@ export class PostFeedPageComponent implements OnInit {
 
   posts: Post[] = [];
   createPost:boolean = false;
-  currentUser: User = this.app.currentUser;
+  currentUser: User;
 
-  constructor(private postService: PostService, private authService: AuthService, private localStorage: LocalService, private app: AppComponent) { }
+  constructor(private postService: PostService, private authService: AuthService, private localStorage: LocalService, private auth: AuthService) { }
 
   ngOnInit(): void {
+    this.auth.checkSession(this.currentUser);
     this.postService.getAllPosts().subscribe(
       (response) => {
         this.posts = response

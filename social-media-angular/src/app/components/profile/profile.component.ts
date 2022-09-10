@@ -2,6 +2,8 @@ import { Component, Input, OnInit } from '@angular/core';
 import Profile from 'src/app/models/Profile';
 import { ProfileService } from 'src/app/services/profile.service';
 import { Router } from '@angular/router';
+import User from 'src/app/models/User';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-profile',
@@ -20,10 +22,12 @@ export class ProfileComponent implements OnInit {
   birthYearSubmit: number;
   follow: string;
 
-  constructor(private profileService: ProfileService, private router: Router ) { }
+  currentUser: User;
+
+  constructor(private profileService: ProfileService, private router: Router, private auth: AuthService ) { }
 
   ngOnInit(): void {
-
+    this.auth.checkSession(this.currentUser);
     //if( this.checkRoute() ) {
       this.profileService.getProfile().subscribe((profile) => (
         this.profile = profile));
