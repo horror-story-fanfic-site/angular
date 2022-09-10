@@ -11,6 +11,22 @@
     margin-right: .5%;
 }
 
+.emoji-img {
+    max-width: 1rem;
+    max-height: 1rem;
+}
+
+.emoji-box {
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    /* height: 50px; */
+    /* padding: 1em; */
+
+}
+
 .image {
     max-width: 45rem;
     height: auto;
@@ -41,6 +57,7 @@
     padding-right: 0;
     padding-left: 0;
 }
+
 .button-card {
     margin-right: 1%;
 }
@@ -52,5 +69,3 @@
 .reply-card {
     margin-right: 1%;
 }
-
-

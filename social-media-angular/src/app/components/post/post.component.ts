@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Emojis } from 'src/app/mock-emojis';
 import Post from 'src/app/models/Post';
 import User from 'src/app/models/User';
 import { AuthService } from 'src/app/services/auth.service';
@@ -19,7 +20,8 @@ export class PostComponent implements OnInit {
 
   @Input('post') post: Post
   replyToPost: boolean = false;
-  toggleEmoji: boolean = false;
+  emojiBox: boolean = false;
+  emojis = Emojis
 
   constructor(private postService: PostService, private authService: AuthService, private followService: FollowersService) { }
 
@@ -37,7 +39,7 @@ export class PostComponent implements OnInit {
   }
 
   toggleEmojis = () => {
-    this.toggleEmoji = !this.toggleEmoji;
+    this.emojiBox = !this.emojiBox;
   }
 
   submitReply = (e: any) => {
