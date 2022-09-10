@@ -27,7 +27,18 @@
       <button class="btn" mat-raised-button color="primary" (click)="followUser()">Subscribe</button>
       <button class="btn" mat-raised-button color="primary" (click)="toggleReplyToPost()">Reply</button>
     </mat-card-actions>
-    
+    <section class="emoji-box">
+      <div *ngIf="emojiBox">
+        <ul>
+          <li *ngFor="let emoji of emojis">
+            <button type="button">
+              <img class="emoji-img" src="{{emoji.emojiPic}}">
+            </button>
+          </li>
+        </ul>
+      </div>
+    </section>
+
     <form class="form" *ngIf="replyToPost" [formGroup]="commentForm" (ngSubmit)="submitReply($event)">
       <mat-form-field class="reply" appearance="fill">
         <mat-label>Make a Post</mat-label>
