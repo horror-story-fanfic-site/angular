@@ -8,6 +8,7 @@ export default class User {
     profilePic: string
 
     constructor (id: number, email: string, firstName: string, lastName: string, username: string, password: string, profilePic: string) {
+
         this.id = id
         this.email = email
         this.firstName = firstName
@@ -15,5 +16,6 @@ export default class User {
         this.username = username
         this.password = password
         this.profilePic = profilePic
+
     }
 }
