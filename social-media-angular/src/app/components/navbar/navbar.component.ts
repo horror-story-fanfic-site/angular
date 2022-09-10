@@ -12,20 +12,20 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class NavbarComponent implements OnInit{
 
-  user: User = {} as User;
+  user: User;
 
-  constructor(private authService: AuthService, private router: Router, private app: AppComponent) { }
+  constructor(private auth: AuthService, private router: Router, private app: AppComponent) { }
   
   ngOnInit(): void {
     //This piece of code cost me 2 days.
-    this.user = this.app.currentUser;
+    this.auth.checkSession(this.user);
   }
 
   ngOnDestroy() {
   }
 
   logout() {
-    this.authService.logout();
+    this.auth.logout();
     this.router.navigate(['login']);
   }
 

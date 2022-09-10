@@ -4,6 +4,7 @@ import { ProfileService } from 'src/app/services/profile.service';
 import { Router } from '@angular/router';
 import User from 'src/app/models/User';
 import { AppComponent } from 'src/app/app.component';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-profile',
@@ -21,14 +22,13 @@ export class ProfileComponent implements OnInit {
   birthMonthSubmit: number;
   birthYearSubmit: number;
   follow: string;
-  currentUser: User = this.app.currentUser;
 
-  constructor(private profileService: ProfileService, private router: Router, private app: AppComponent ) { }
+  currentUser: User;
+
+  constructor(private profileService: ProfileService, private router: Router, private auth: AuthService ) { }
 
   ngOnInit(): void {
-
-    this.app.checkSession();
-
+    this.auth.checkSession(this.currentUser);
     //if( this.checkRoute() ) {
       this.profileService.getProfile().subscribe((profile) => (
         this.profile = profile));
