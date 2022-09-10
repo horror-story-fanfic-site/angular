@@ -10,6 +10,7 @@ import { Observable } from 'rxjs';
 
 export class SearchbarComponent implements OnInit {
 
+  usernameToSearch: string;
   
   constructor(private usersService: UsersService) {
     
