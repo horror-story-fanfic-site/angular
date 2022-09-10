@@ -1,0 +1,13 @@
+<div ng-app="demo" ng-controller="myCtrl">
+  <mat-form-field appearance="fill">
+    <mat-label>Searches</mat-label>
+    <input type="text" placeholder="filter" matInput aria-label="Searches" id="searchPostBar" (keyup)="refreshSearch()"/>
+    <mat-select>
+      <mat-option
+        *ngFor="let username of selectedNames"
+        routerLink="/profile/{{username}}"
+        [(ngModel)] = "usernameToSearch"
+        >{{username}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>

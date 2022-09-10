@@ -1,0 +1,74 @@
+<app-sidebar></app-sidebar>
+<body class="profile">
+ <div id="card">
+    <div id="card-content">
+        <!-- <div>{{profile.username}}</div> -->
+        <!-- <div>{{profile.description}}</div> -->
+        <div id="card-title">
+        <h1>{{profile.username}}'s Profile</h1>
+        <div class="underline-title"></div>
+    </div>
+        <form (ngSubmit)="updateUsernameSubmit()" *ngIf="checkRoute()">
+    <label for="usernameSubmit"style="padding-top: 22px; color: white">Update Username</label>
+    <input 
+        matInput
+        type="text" 
+        name="usernameSubmit"
+        id="usernameSubmit"
+        placeholder="New Username"
+        [(ngModel)] = "usernameSubmit"
+    >
+    <input id="submit-btn" type="submit" value="Submit">
+         </form>
+
+<form (ngSubmit)="updateDescriptionSubmit()" *ngIf="checkRoute()">
+    <label for="descriptionSubmit"style="padding-top: 22px; color: white">Update Description</label>
+    <input 
+        matInput
+        type="text"
+        name="descriptionSubmit"
+        id="descriptionSubmit"
+        placeholder="New Description"
+        [(ngModel)]="descriptionSubmit"
+        >
+    <input id="submit-btn" type="submit" value="Submit">
+</form>
+
+<form (ngSubmit)="updateDOBSubmit()" *ngIf="checkRoute()">
+    <label for="DOBSubmit"style="padding-top: 22px; color: white">Update Birthday </label>
+    <input 
+        matInput
+        type="number"
+        name="birthDaySubmit"
+        id="DOBSubmit"
+        placeholder="New Day"
+        [(ngModel)]="birthDaySubmit"
+    >
+    <input 
+        matInput
+        type="number"
+        name="birthMonthSubmit"
+        id="DOBSubmit"
+        placeholder="New Month"
+        [(ngModel)]="birthMonthSubmit"
+    >
+    <input 
+         matInput
+        type="number" 
+        name="birthYearSubmit"
+        id="DOBSubmit"
+        placeholder="New Year"
+        [(ngModel)]="birthYearSubmit"
+    >
+    <input id="submit-btn" type="submit" value="Submit">
+
+</form>
+</div>
+ </div>
+</body>
+<mat-list>
+    <mat-list-item> {{profile.birthDay}} </mat-list-item>
+    <mat-list-item> {{profile.birthMonth}} </mat-list-item>
+    <mat-list-item> {{profile.birthYear}} </mat-list-item>
+   </mat-list>
+  

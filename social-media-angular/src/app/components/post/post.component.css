@@ -1,0 +1,71 @@
+.post-card {
+    border-radius: 25px;
+}
+
+.btn {
+    background: -webkit-linear-gradient(right, #a6f77b, #2ec06f);
+}
+
+.reply-btn {
+    margin-left: .5%;
+    margin-right: .5%;
+}
+
+.emoji-img {
+    max-width: 1rem;
+    max-height: 1rem;
+}
+
+.emoji-box {
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    /* height: 50px; */
+    /* padding: 1em; */
+
+}
+
+.image {
+    max-width: 45rem;
+    height: auto;
+    margin-top: 1%;
+    padding: 2%;
+
+}
+
+.post-text {
+    max-width: 45rem;
+    height: auto;
+    padding-bottom: 2%;
+    text-align: justify;
+}
+
+.banner {
+    background-color: #222f42b8;
+    background: webkit linear-gradient('to left', #586368, #365a66, #2C5364);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: #FFF;
+    height: 50px;
+    padding: 1em;
+
+}
+
+.fix-card {
+    padding-top: 0;
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.button-card {
+    margin-right: 1%;
+}
+
+.reply {
+    width: 45rem;
+}
+
+.reply-card {
+    margin-right: 1%;
+}
