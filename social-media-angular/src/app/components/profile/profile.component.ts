@@ -22,6 +22,8 @@ export class ProfileComponent implements OnInit {
   birthMonthSubmit: number;
   birthYearSubmit: number;
   follow: string;
+  profilePicSubmit: string;
+  showForms: boolean = false;
 
   currentUser: User;
 
@@ -90,4 +92,13 @@ export class ProfileComponent implements OnInit {
     ))
   }
 
+  updateProfilePicSubmit() {
+    //add functionality here
+    this.profilePicSubmit
+  }
+
+  showChangeForms() {
+    // console.log(this.showForms);
+    this.showForms = !this.showForms;
+  }
 }
