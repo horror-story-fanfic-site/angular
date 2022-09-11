@@ -1,20 +1,16 @@
 <div ng-app="demo" ng-controller="myCtrl">
   <mat-form-field appearance="fill">
-    <mat-label style="color: white">Searches</mat-label>
-    <input
-      type="text"
-      placeholder="filter"
-      matInput
-      aria-label="Searches"
-      id="searchPostBar"
-      (keyup)="refreshSearch()"
-    />
-    <mat-select>
-      <mat-option
-        *ngFor="let username of selectedNames"
-        routerLink="/view/{{username}}"
-        >{{username}}</mat-option
-      >
-    </mat-select>
+
+    <input class="form-input" 
+          type="text" 
+          placeholder="filter" 
+          matInput 
+          [matAutocomplete]="auto" 
+          id="searchPostBar"
+          (keyup)="refreshSearch()" />
+    <mat-label style="color: white">Search for Users</mat-label>
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option  *ngFor="let username of selectedNames" routerLink="/view/{{username}}">{{username}}</mat-option>
+      </mat-autocomplete>
   </mat-form-field>
 </div>
