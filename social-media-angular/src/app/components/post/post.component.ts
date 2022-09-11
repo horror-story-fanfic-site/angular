@@ -75,6 +75,6 @@ export class PostComponent implements OnInit {
   }
 
   submitEmoji(postId: number, emojiId: number){
-    this.emojiService.submitEmoji(postId,emojiId).subscribe;
+    this.emojiService.submitEmoji(postId,emojiId).subscribe();
   }
 }

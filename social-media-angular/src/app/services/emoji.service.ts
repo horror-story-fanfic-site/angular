@@ -12,7 +12,7 @@ import Post from '../models/Post';
 })
 export class EmojiService {
 
-  postUrl: string = `${environment.baseUrl}/post`
+  postUrl: string = `${environment.baseUrl}/post`;
   emojis = Emojis;
   emoji: Emoji;
   postEmojis: any;
@@ -33,11 +33,11 @@ export class EmojiService {
 
     let params = new HttpParams()
     .set('emojiId', emojiId)
-    .set('postId', postId)
+    .set('postId', postId);
 
     console.log(postId+" "+emojiId);
     // const payload = {postId: postId, emojiId: emojiId};
-    return this.http.post<string>(`${this.postUrl}/likePost`, params, {headers: environment.paramHeaders, withCredentials: environment.withCredentials})
+    return this.http.post<string>(`${this.postUrl}/likePost`, params, {headers: environment.paramHeaders, withCredentials: environment.withCredentials});
     //return this.http.post<String[]>(`${this.userUrl}/getAllUsernames`, {headers: environment.headers, withCredentials: environment.withCredentials})
   }
 }
