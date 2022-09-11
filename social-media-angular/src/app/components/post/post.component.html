@@ -22,6 +22,14 @@
         </div>
       </mat-card-content>
     </section>
+    <mat-card-content align="start" class="">
+      <div *ngIf="emojisExist">
+        <div *ngFor="let emoji of emojis" class="emoji-box">
+          <img class="emoji-img" src="{{emoji.emojiPic}}" alt="">
+          <h4>{{postemoji.count}}</h4>
+        </div>
+      </div>
+    </mat-card-content>
     <mat-card-actions align="end" class="button-card">
       <div *ngIf="emojiBox">
         <div *ngFor="let emoji of emojis" class="emoji-box">
@@ -29,12 +37,12 @@
             <img class="emoji-img" src="{{emoji.emojiPic}}">
           </button>
         </div>
-    </div>
+      </div>
       <button class="btn" mat-raised-button color="primary" (click)="toggleEmojis()">Like</button>
       <button class="btn" mat-raised-button color="primary" (click)="followUser()">Subscribe</button>
       <button class="btn" mat-raised-button color="primary" (click)="toggleReplyToPost()">Reply</button>
     </mat-card-actions>
-   
+
 
     <form class="form" *ngIf="replyToPost" [formGroup]="commentForm" (ngSubmit)="submitReply($event)">
       <mat-form-field class="reply" appearance="fill">
