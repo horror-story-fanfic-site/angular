@@ -4,6 +4,7 @@ import { Emojis } from 'src/app/mock-emojis';
 import Post from 'src/app/models/Post';
 import User from 'src/app/models/User';
 import { AuthService } from 'src/app/services/auth.service';
+import { EmojiService } from 'src/app/services/emoji.service';
 import { FollowersService } from 'src/app/services/followers.service';
 import { PostService } from 'src/app/services/post.service';
 import { ProfileService } from 'src/app/services/profile.service';
@@ -25,7 +26,7 @@ export class PostComponent implements OnInit {
   emojiBox: boolean = false;
   emojis = Emojis
 
-  constructor(private postService: PostService, private authService: AuthService, private profileService: ProfileService) { }
+  constructor(private postService: PostService, private authService: AuthService, private profileService: ProfileService, private emojiService: EmojiService) { }
 
   ngOnInit(): void {
   }
@@ -55,5 +56,8 @@ export class PostComponent implements OnInit {
         }
       )
   }
-
+  
+  submitEmoji(postId: number, emojiId: number){
+    this.emojiService.submitEmoji(postId,emojiId);
+  }
 }
