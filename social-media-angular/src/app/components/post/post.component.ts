@@ -6,6 +6,8 @@ import User from 'src/app/models/User';
 import { AuthService } from 'src/app/services/auth.service';
 import { FollowersService } from 'src/app/services/followers.service';
 import { PostService } from 'src/app/services/post.service';
+import { ProfileService } from 'src/app/services/profile.service';
+import { ProfileComponent } from '../profile/profile.component';
 
 @Component({
   selector: 'app-post',
@@ -23,14 +25,14 @@ export class PostComponent implements OnInit {
   emojiBox: boolean = false;
   emojis = Emojis
 
-  constructor(private postService: PostService, private authService: AuthService, private followService: FollowersService) { }
+  constructor(private postService: PostService, private authService: AuthService, private profileService: ProfileService) { }
 
   ngOnInit(): void {
   }
 
   followUser(){
     console.log(this.post.author.username)
-    this.followService.follow(this.post.author.username);
+    this.profileService.followPerson(this.post.author.username).subscribe();
   }
 
   
