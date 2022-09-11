@@ -61,7 +61,7 @@ export class PostComponent implements OnInit {
         }
       )
   }
-
+  
   getEmojis(emojiId: number){
     this.emoji.emojiId
     this.postemoji
@@ -71,4 +71,7 @@ export class PostComponent implements OnInit {
     ))
   }
 
+  submitEmoji(postId: number, emojiId: number){
+    this.emojiService.submitEmoji(postId,emojiId);
+  }
 }
