@@ -1,74 +1,131 @@
 <app-sidebar></app-sidebar>
-<body class="profile">
- <div id="card">
-    <div id="card-content">
-        <!-- <div>{{profile.username}}</div> -->
-        <!-- <div>{{profile.description}}</div> -->
-        <div id="card-title">
-        <h1>{{profile.username}}'s Profile</h1>
-        <div class="underline-title"></div>
+
+<html>
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,400,300,600,700,800"
+      rel="stylesheet"
+      type="text/css"
+    />
+  </head>
+  <body>
+    <div class="portfoliocard">
+      <div class="coverphoto"></div>
+      <div class="profile_picture">
+        <img class="profile_picture" src="{{profile.profilePic}}" alt="">
+      </div>
+      <div class="left_col" *ngIf="showForms == false">
+        <div class="following">
+          <div class="follow_count">{{profile.peopleFollowed.length}}</div>
+          Users Followed
+        </div>
+        <div *ngIf="profile.birthDay != null" class="following">Birthday: {{profile.birthMonth}}/{{profile.birthDay}}/{{profile.birthYear}}</div>
+
     </div>
-        <form (ngSubmit)="updateUsernameSubmit()" *ngIf="checkRoute()">
-    <label for="usernameSubmit"style="padding-top: 22px; color: white">Update Username</label>
-    <input 
-        matInput
-        type="text" 
-        name="usernameSubmit"
-        id="usernameSubmit"
-        placeholder="New Username"
-        [(ngModel)] = "usernameSubmit"
-    >
-    <input id="submit-btn" type="submit" value="Submit">
-         </form>
+    <div class="right_col" *ngIf="showForms == false">
+        <h2 class="name">{{ profile.username }}</h2>
+        <ul class="contact_information">
+            {{ profile.description }}
+        </ul>
 
-<form (ngSubmit)="updateDescriptionSubmit()" *ngIf="checkRoute()">
-    <label for="descriptionSubmit"style="padding-top: 22px; color: white">Update Description</label>
-    <input 
-        matInput
-        type="text"
-        name="descriptionSubmit"
-        id="descriptionSubmit"
-        placeholder="New Description"
-        [(ngModel)]="descriptionSubmit"
-        >
-    <input id="submit-btn" type="submit" value="Submit">
-</form>
+        <button
+            *ngIf="checkRoute() != true"
+            (click)="addFollow()"
+        >Follow</button>
 
-<form (ngSubmit)="updateDOBSubmit()" *ngIf="checkRoute()">
-    <label for="DOBSubmit"style="padding-top: 22px; color: white">Update Birthday </label>
-    <input 
-        matInput
-        type="number"
-        name="birthDaySubmit"
-        id="DOBSubmit"
-        placeholder="New Day"
-        [(ngModel)]="birthDaySubmit"
-    >
-    <input 
-        matInput
-        type="number"
-        name="birthMonthSubmit"
-        id="DOBSubmit"
-        placeholder="New Month"
-        [(ngModel)]="birthMonthSubmit"
-    >
-    <input 
-         matInput
-        type="number" 
-        name="birthYearSubmit"
-        id="DOBSubmit"
-        placeholder="New Year"
-        [(ngModel)]="birthYearSubmit"
-    >
-    <input id="submit-btn" type="submit" value="Submit">
+        <button
+            *ngIf="checkRoute()"
+            (click)="showChangeForms()"
+        >Edit Profile</button>
+    </div>
+    
+    <!-- functionality here to change data of the user that shows up on the profile page -->
 
-</form>
+<div class="full_col" *ngIf="showForms">
+    <div class="card" >
+        <!-- //change the name of the user -->
+        <form (ngSubmit)="updateUsernameSubmit()">
+            <label for="usernameSubmit">Update Username:</label>
+            <input 
+                type="text" 
+                name="usernameSubmit"
+                id="usernameSubmit"
+                placeholder="New Username"
+                [(ngModel)] = "usernameSubmit"
+            >
+            <input id="submit-btn" type="submit" value="Submit">
+                </form>
+
+        <!-- change the descripton of the user -->
+        <form (ngSubmit)="updateDescriptionSubmit()" >
+            <label for="descriptionSubmit">Update Description:</label>
+            <input 
+                type="text"
+                name="descriptionSubmit"
+                id="descriptionSubmit"
+                placeholder="New Description"
+                [(ngModel)]="descriptionSubmit"
+                >
+            <input id="submit-btn" type="submit" value="Submit">
+        </form>
+
+        <!-- change the birthday of the user -->
+        <form (ngSubmit)="updateDOBSubmit()" >
+            <label for="DOBSubmit">Update Birthday: </label>
+            <input 
+                type="number"
+                min="1"
+                max="31"
+                name="birthDaySubmit"
+                id="DOBSubmit"
+                placeholder="Day"
+                [(ngModel)]="birthDaySubmit"
+            >
+            <input 
+                type="number"
+                min="1"
+                max="12"
+                name="birthMonthSubmit"
+                id="DOBSubmit"
+                placeholder="Month"
+                [(ngModel)]="birthMonthSubmit"
+            >
+            <input 
+                type="number" 
+                min="1901"
+                max="2022"
+                name="birthYearSubmit"
+                id="DOBSubmit"
+                placeholder="Year"
+                [(ngModel)]="birthYearSubmit"
+            >
+            <input id="submit-btn" type="submit" value="Submit">
+        </form>
+
+        <!-- form to change the profile picture -->
+        <form (ngSubmit)="updateProfilePicSubmit()">
+            <label for="profilePicSubmit">Update Profile Picture:</label>
+            <input    
+                type="text"
+                name="profilePicSubmit"
+                id="profilePicSubmit"
+                placeholder="Image URL"
+                [(ngModel)]="profilePicSubmit"
+            >
+            <input id="submit-btn" type="submit" value="Submit">
+        </form>
+
+        <!-- button to get out of forms -->
+        <button
+            *ngIf="checkRoute()"
+            (click)="showChangeForms()"
+        >Edit Profile</button>
+    </div>
 </div>
- </div>
-</body>
-<mat-list>
-    <mat-list-item> {{profile.birthDay}} </mat-list-item>
-    <mat-list-item> {{profile.birthMonth}} </mat-list-item>
-    <mat-list-item> {{profile.birthYear}} </mat-list-item>
-   </mat-list>
-  
+
+    
+      
+    </div>
+    
+  </body>
+</html>
