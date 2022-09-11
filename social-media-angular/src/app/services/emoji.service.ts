@@ -1,11 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { environment } from 'src/environments/environment';
 import Emoji from '../models/Emoji';
 import { Emojis } from '../mock-emojis';
 import PostEmoji from '../models/PostEmoji';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
@@ -19,10 +16,12 @@ export class EmojiService {
   emoji: Emoji;
   postEmojis: any;
 
-  constructor(private http: HttpClient){}
 
   getPostEmojis(emojiId: number): Observable<PostEmoji[]> {
-    this.postEmojis = this.http.post<PostEmoji[]>(`${this.postUrl}/getEmojis`, emojiId ,{headers: environment.paramHeaders, withCredentials: environment.withCredentials})
+
+    let params = new HttpParams().set('emojiId', emojiId)
+
+    this.postEmojis = this.http.post<PostEmoji[]>(`${this.postUrl}/getEmojis`, params ,{headers: environment.paramHeaders, withCredentials: environment.withCredentials})
     return this.postEmojis;
   }
 
