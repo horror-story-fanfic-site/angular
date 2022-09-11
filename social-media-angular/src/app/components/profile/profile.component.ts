@@ -95,6 +95,10 @@ export class ProfileComponent implements OnInit {
   updateProfilePicSubmit() {
     //add functionality here
     this.profilePicSubmit
+
+    this.profileService.updateProfilePic(this.profilePicSubmit).subscribe((response) =>(
+      this.profile.profilePic = this.profilePicSubmit
+    ))
   }
 
   showChangeForms() {
