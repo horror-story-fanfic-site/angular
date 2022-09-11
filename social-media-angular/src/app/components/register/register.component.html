@@ -1,4 +1,4 @@
-<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+<!-- <div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
   <mat-card class="box">
     <mat-card-header>
       <mat-card-title>Register</mat-card-title>
@@ -38,4 +38,101 @@
       >Already have an account?</a
     >
   </mat-card>
-</div>
+</div> -->
+
+<body class="login">
+  <div id="card">
+    <div id="card-content">
+      <div id="card-title">
+        <h2>REGISTER</h2>
+        <div class="underline-title"></div>
+      </div>
+      <form
+        method="post"
+        class="form"
+        [formGroup]="registerForm"
+        (ngSubmit)="onSubmit($event)"
+      >
+        <label for="user-email" style="padding-top: 13px; color: white">
+          &nbsp;Email
+        </label>
+
+        <input
+          matInput
+          type="text"
+          formControlName="email"
+          id="user-email"
+          class="form-content"
+          type="email"
+          name="email"
+          autocomplete="on"
+          required
+        />
+
+        <div class="form-border"></div>
+        <label for="user-password" style="padding-top: 22px; color: white"
+          >&nbsp;Password
+        </label>
+
+        <input
+          matInput
+          type="text"
+          id="user-password"
+          class="form-content"
+          formControlName="password"
+          type="password"
+          name="password"
+          required
+        />
+
+        <div class="form-border"></div>
+        <label for="user-password" style="padding-top: 22px; color: white"
+          >&nbsp;First Name
+        </label>
+
+        <input
+          matInput
+          type="text"
+          id="user-password"
+          class="form-content"
+          formControlName="firstName"
+          name="first name"
+          required
+        />
+
+        <div class="form-border"></div>
+        <label for="user-password" style="padding-top: 22px; color: white"
+          >&nbsp;Last Name
+        </label>
+
+        <input
+          matInput
+          type="text"
+          id="user-password"
+          class="form-content"
+          formControlName="lastName"
+          name="first name"
+          required
+        />
+
+        <div class="form-border"></div>
+        <label for="user-password" style="padding-top: 22px; color: white"
+          >&nbsp;Username
+        </label>
+
+        <input
+          matInput
+          type="text"
+          id="user-password"
+          class="form-content"
+          formControlName="username"
+          name="first name"
+          required
+        />
+
+        <div class="form-border"></div>
+        <input id="submit-btn" type="submit" name="submit" value="REGISTER" />
+      </form>
+    </div>
+  </div>
+</body>
