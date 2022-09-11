@@ -12,19 +12,20 @@
 }
 
 .emoji-img {
-    max-width: 1rem;
-    max-height: 1rem;
+    width: 2rem;
+    height: 2rem;
 }
 
 .emoji-box {
+    position: relative;
+    right: 10;
+    display: inline-block;    
+}
 
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    /* height: 50px; */
-    /* padding: 1em; */
-
+.emoji-btn {
+    
+    border-style: none;
+    color: white;
 }
 
 .image {

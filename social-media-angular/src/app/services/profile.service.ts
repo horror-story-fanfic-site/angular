@@ -15,9 +15,10 @@ export class ProfileService {
   private updateDescriptionUrl = `${environment.baseUrl}/user/updatedescription`
   private udateDOBUrl = `${environment.baseUrl}/user/changeBirthday`
   private followUrl =`${environment.baseUrl}/followers/follow`;
+  private anotherPersonsProfileUrl = `${environment.baseUrl}/user/peek`;
+  private updateProfilePicUrl = `${environment.baseUrl}/user/changeProfilePicture`;
 
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient ) { }
 
   getProfile(): Observable<Profile> {
 
@@ -48,7 +49,7 @@ export class ProfileService {
       .set( 'newBirthYear', newBirthYear);
 
     return this.http.put<string>(`${this.udateDOBUrl}`, params, {headers: environment.paramHeaders, 
-      withCredentials: environment.withCredentials} )
+      withCredentials: environment.withCredentials} );
   }
 
   followPerson(username: string){
@@ -58,8 +59,21 @@ export class ProfileService {
     }
 
     return this.http.post<User>(`${this.followUrl}`, JSON.stringify(obj), {headers: environment.headers, 
-      withCredentials: environment.withCredentials} )
+      withCredentials: environment.withCredentials} );
 
+  }
+
+  getAnotherPersonsProfile(username: string): Observable<Profile> {
+
+    return this.http.get<Profile>(`${this.anotherPersonsProfileUrl}/${username}`, {headers: environment.paramHeaders, withCredentials: environment.withCredentials});
+  }
+
+  updateProfilePic(profilePic:string) {
+
+    let params = new HttpParams().set('newProfilePicture', profilePic);
+
+    return this.http.put<string>(`${this.updateProfilePicUrl}`, params, {headers: environment.paramHeaders, 
+    withCredentials: environment.withCredentials})
   }
 
 }
