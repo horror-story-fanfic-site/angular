@@ -15,7 +15,7 @@ export class RegisterComponent implements OnInit {
     lastName: new FormControl(''),
     email: new FormControl(''),
     password: new FormControl(''),
-    userName: new FormControl('')
+    username: new FormControl('')
   })
   
 
@@ -25,8 +25,9 @@ export class RegisterComponent implements OnInit {
   }
   
   onSubmit(e: any): void {
+    console.log(this.registerForm.value.username);
     e.preventDefault()
-    this.authService.register(this.registerForm.value.firstName || "", this.registerForm.value.lastName || "", this.registerForm.value.email || "", this.registerForm.value.password || "",this.registerForm.value.userName || "")
+    this.authService.register(this.registerForm.value.firstName || "", this.registerForm.value.lastName || "", this.registerForm.value.email || "", this.registerForm.value.password || "",this.registerForm.value.username || "")
       .subscribe(
         (response) => {
           this.router.navigate(['login'])
