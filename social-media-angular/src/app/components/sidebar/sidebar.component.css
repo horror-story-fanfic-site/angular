@@ -19,7 +19,7 @@ html, body {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  background-color: #020303;
+  background-color: #3C3F48;
   background: webkit linear-gradient(left, #0F2027, #203A43, #2C5364);
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   color: #FFF;
