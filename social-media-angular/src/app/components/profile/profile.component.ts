@@ -47,14 +47,20 @@ export class ProfileComponent implements OnInit {
 
   }
   
+  // isUpdated: boolean = false;
   updateUsernameSubmit() {
-    console.log("in profile.ts:", this.usernameSubmit);
-    this.profileService.updateUsername(this.usernameSubmit).subscribe((response) => (
-      this.profile.username = this.usernameSubmit
-    ));
+  console.log("in profile.ts:", this.usernameSubmit);
+    this.profileService.updateUsername(this.usernameSubmit).subscribe((response) => {
+      this.profile.username = this.usernameSubmit;
+      // this.isUpdated = true;
+    });
     
-    //after the submit, clear the form
-    // this.usernameSubmit = "";
+    // //reset page on submit form
+    // if(this.isUpdated){
+    // this.redirectBackToProfile();
+    // // this.router.navigate(['profile']);
+    // this.isUpdated = false;
+    // }
   }
 
   updateDescriptionSubmit() {
@@ -66,6 +72,7 @@ export class ProfileComponent implements OnInit {
     //after the submit, clear the form
     // this.descriptionSubmit = "";
   }
+  
   
   updateDOBSubmit() {
 
@@ -106,4 +113,9 @@ export class ProfileComponent implements OnInit {
     // console.log(this.showForms);
     this.showForms = !this.showForms;
   }
+
+  // redirectBackToProfile() {
+  //   // this.router.navigateByUrl('/', {skipLocationChange: true}).then(()=>
+  //   // this.router.navigate(['profile']));
+  // }
 }
