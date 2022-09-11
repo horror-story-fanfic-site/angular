@@ -73,9 +73,11 @@ export class ProfileComponent implements OnInit {
       `${this.birthDaySubmit}`,
       `${this.birthMonthSubmit}`,
       `${this.birthYearSubmit}`
-    ).subscribe((response) => (
-      console.log("birthday changed")
-    ))
+    ).subscribe((response) => {
+      this.profile.birthDay = ""+this.birthDaySubmit;
+      this.profile.birthMonth = ""+this.birthMonthSubmit;
+      this.profile.birthYear = ""+this.birthYearSubmit;
+  })
   }
   
   checkRoute(): boolean {
@@ -87,7 +89,6 @@ export class ProfileComponent implements OnInit {
 
     // this.profileService.followPerson("KRichy123").subscribe((data) => (
     this.profileService.followPerson(this.profile.username).subscribe((data) => (
-    //this.profileService.followPerson("Username").subscribe((data) => (
       console.log(data.username)
     ))
   }

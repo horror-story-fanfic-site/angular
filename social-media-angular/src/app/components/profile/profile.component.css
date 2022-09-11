@@ -40,6 +40,13 @@
     float:left;
     height:340px;
   }
+
+  div.portfoliocard div.full_col{
+    width:100%;
+    padding-top:85px;
+    box-sizing:border-box;
+  }
+
   div.portfoliocard div.left_col{
     width:40%;
     padding-top:85px;
