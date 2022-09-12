@@ -18,11 +18,33 @@
     background: transparent !important;
 }
 
+.postemoji-img {
+    width: 2rem;
+    height: 2rem;
+    background: transparent !important;
+}
+
+.postemoji-spacing{
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.emoji-card {
+    position: relative;
+    top: 4.3rem;
+    display: inline-block;
+    margin-right: 75%;
+}
+
 .emoji-box {
     position: relative;
     right: 10;
     display: inline-block;
+    margin-top: 7px;
+
 }
+
+
 
 .emoji-btn {
     border-style: none;
