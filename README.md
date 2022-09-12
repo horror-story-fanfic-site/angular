@@ -1,15 +1,32 @@
-# angular
+<!-- TITLE -->
+# WEBSITE NAME GOES HERE Front-end
+This is the front-end component for a horror story fan-fic website. The API can be found [here](https://github.com/revature-2206-social-capstone/spring). The full stack of this application was built using Java and Angular. 
+
+<!-- FEATURES -->
+## Features
+- A user can register an account and login.
+- A user can reset their password.
+- A user can create posts, reply to posts, and like posts.
+- A user can manage a profile page, including changing their username, description, birthday, and profile picture.
+- A user can search for other users and follow other users.
+
+<!-- TECHNOLOGIES USED -->
+## Technologies Used
+- Angular
+- TypeScript
+- CSS
+- HTML
 
 <!-- GETTING STARTED -->
-### Getting Started
+## Getting Started
 
-1. Clone the repo
+### Clone the repo
    ``` 
    https://github.com/revature-2206-social-capstone/angular.git
    ```
-
+   
 <!-- CONTRIBUTING -->
-### Contributing
+## Contributing
 
 1. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
 2. Create Branch Upstream (`git push --set-upstream origin [feature/AmazingFeature]`)

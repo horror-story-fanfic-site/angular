@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -15,6 +15,14 @@ import { CommentComponent } from './components/comment/comment.component';
 import { UserCardComponent } from './components/user-card/user-card.component';
 import { UserInitialsPipe } from './pipes/user-initials.pipe';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { SearchbarComponent } from './components/searchbar/searchbar.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { FollowersComponent } from './components/followers/followers.component';
+import { ForgotpasswordComponent } from './components/forgotpassword/forgotpassword.component';
+import { ResetpasswordComponent } from './components/resetpassword/resetpassword.component';
+import { FollowerFeedPageComponent } from './components/follower-feed-page/follower-feed-page.component';
+import { EmojisComponent } from './components/emojis/emojis.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +35,18 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     UserCardComponent,
     NavbarComponent,
     UserInitialsPipe,
+    FollowersComponent,
+    ForgotpasswordComponent,
+    ResetpasswordComponent,
+    ProfileComponent,
+    SearchbarComponent,
+    ProfileComponent,
+    SidebarComponent,
+    FollowersComponent,
+    ForgotpasswordComponent,
+    ResetpasswordComponent,
+    FollowerFeedPageComponent,
+    EmojisComponent
   ],
   imports: [
     BrowserModule,
@@ -35,6 +55,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     AngularMaterialModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
