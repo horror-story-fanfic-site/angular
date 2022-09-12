@@ -22,7 +22,7 @@ describe('FollowersComponent', () => {
 
       // provide a test-double
       
-      providers: [{ provide: FollowersService, useValue: followersServiceStub }],
+//      providers: [{ provide: FollowersService, useValue: followersServiceStub }],
     })
     .compileComponents();
 
