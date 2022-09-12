@@ -1,6 +1,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <section class="top-nav">
-  <div>Logo Here</div>
+  <div>Handle With Scare</div>
   <input id="menu-toggle" type="checkbox" />
   <label class="menu-button-container" for="menu-toggle">
     <div class="menu-button"></div>
@@ -8,8 +8,9 @@
   <span class="spacer"></span>
   <span><app-searchbar></app-searchbar></span>
   <ul class="menu">
-    <li><button class="btn">Profile</button></li>
+    <li><button class="btn" (click)="toHome()">Home</button></li>
+    <li><button class="btn" (click)="toProfile()">Profile</button></li>
     <li><button class="btn" (click)="onClick()">My Feed</button></li>
-    <li><button class="btn">Logout</button></li>
+    <li><button class="btn" (click)="logout()">Logout</button></li>
   </ul>
 </section>

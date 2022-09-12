@@ -1,9 +1,4 @@
-#searchPostBar{
-    border-radius: 5px;
-    border: black;
-    margin-top: 18px;
-    height: 27px;
-}
+
 .select {
     transform: translateX(190px);
     border-radius: 5px;
@@ -17,4 +12,14 @@
   
   .example-full-width {
     width: 100%;
+  }
+
+  .form-text {
+    /* position: relative;
+    z-index: 2;
+    top: 10px; */
+  }
+
+  .form-input {
+    z-index: 1;
   }

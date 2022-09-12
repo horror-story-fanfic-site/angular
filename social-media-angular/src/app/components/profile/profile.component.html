@@ -1,64 +1,197 @@
-<div>{{profile.username}}</div>
-<div>{{profile.description}}</div>
+<app-sidebar></app-sidebar>
 
-<form (ngSubmit)="updateUsernameSubmit()" *ngIf="checkRoute()">
-    <label for="usernameSubmit">New Username:</label>
-    <input 
-        type="text" 
-        name="usernameSubmit"
-        id="usernameSubmit"
-        placeholder="New Username"
-        [(ngModel)] = "usernameSubmit"
-    >
-    <input type="submit" value="Submit">
-</form>
+<html>
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,400,300,600,700,800"
+      rel="stylesheet"
+      type="text/css"
+    />
+  </head>
+  <body>
+    <div class="portfoliocard">
+      <div class="coverphoto"></div>
+      <div class="profile_picture">
+        <img class="profile_picture" src="{{profile.profilePic}}" alt="" />
+      </div>
+      <div class="left_col" *ngIf="showForms == false">
+        <div class="following">
+          <div class="follow_count">{{profile.peopleFollowed.length}}</div>
+          Users Followed
+        </div>
+        <div *ngIf="profile.birthDay != null" class="following">
+          Birthday: {{profile.birthMonth}}/{{profile.birthDay
 
-<form (ngSubmit)="updateDescriptionSubmit()" *ngIf="checkRoute()">
-    <label for="descriptionSubmit">New Description:</label>
-    <input 
-        type="text"
-        name="descriptionSubmit"
-        id="descriptionSubmit"
-        placeholder="New Description"
-        [(ngModel)]="descriptionSubmit"
-        >
-    <input type="submit" value="Submit">
-</form>
+          }}/{{profile.birthYear}}
+        </div>
+      </div>
+      <div class="right_col" *ngIf="showForms == false">
+        <h2 class="name">{{ profile.username }}</h2>
+        <ul class="contact_information">
+          {{ profile.description }}
+        </ul>
 
-<form (ngSubmit)="updateDOBSubmit()" *ngIf="checkRoute()">
-    <label for="DOBSubmit">New Birthday:</label>
-    <input 
-        type="number"
-        name="birthDaySubmit"
-        id="DOBSubmit"
-        placeholder="New Day"
-        [(ngModel)]="birthDaySubmit"
-    >
-    <input 
-        type="number"
-        name="birthMonthSubmit"
-        id="DOBSubmit"
-        placeholder="New Month"
-        [(ngModel)]="birthMonthSubmit"
-    >
-    <input 
-        type="number" 
-        name="birthYearSubmit"
-        id="DOBSubmit"
-        placeholder="New Year"
-        [(ngModel)]="birthYearSubmit"
-    >
-    <input type="submit" value="Submit">
+        <button class="btn" *ngIf="checkRoute() != true" (click)="addFollow()">
+          Follow
+        </button>
 
-</form>
+        <button class="btn" *ngIf="checkRoute()" (click)="showChangeForms()">
+          Edit Profile
+        </button>
+      </div>
 
-<!-- //follow button -->
-<button (click)="addFollow()" *ngIf = "checkRoute() != true" >Follow
-    
-</button>
+      <!-- functionality here to change data of the user that shows up on the profile page -->
 
-<mat-list>
-    <mat-list-item> {{profile.birthDay}} </mat-list-item>
-    <mat-list-item> {{profile.birthMonth}} </mat-list-item>
-    <mat-list-item> {{profile.birthYear}} </mat-list-item>
-   </mat-list>
+      <div class="full_col" *ngIf="showForms">
+        <div>
+          <!-- //change the name of the user -->
+          <form style="margin-left: 50px" (ngSubmit)="updateUsernameSubmit()">
+            <label for="usernameSubmit"></label>
+            <input
+              style="
+                margin-left: 5px;
+                border-radius: 10px;
+                height: 20px;
+                border-width: 1px;
+              "
+              type="text"
+              name="usernameSubmit"
+              id="usernameSubmit"
+              placeholder="New Username"
+              [(ngModel)]="usernameSubmit"
+            />
+            <input
+              class="btn-edit"
+              id="submit-btn"
+              type="submit"
+              value="Submit"
+            />
+          </form>
+
+          <!-- change the descripton of the user -->
+          <form
+            style="margin-top: 20px; position: relative; right: -50px"
+            (ngSubmit)="updateDescriptionSubmit()"
+          >
+            <label for="descriptionSubmit"></label>
+            <input
+              style="
+                margin-left: 5px;
+                border-radius: 10px;
+                height: 20px;
+                border-width: 1px;
+              "
+              type="text"
+              name="descriptionSubmit"
+              id="descriptionSubmit"
+              placeholder="New Description"
+              [(ngModel)]="descriptionSubmit"
+            />
+            <input
+              class="btn-edit"
+              id="submit-btn"
+              type="submit"
+              value="Submit"
+            />
+          </form>
+
+          <!-- change the birthday of the user -->
+          <form
+            style="margin-top: 20px; margin-left: 50px"
+            (ngSubmit)="updateDOBSubmit()"
+          >
+            <label for="DOBSubmit"></label>
+            <input
+              type="number"
+              min="1"
+              max="31"
+              name="birthDaySubmit"
+              id="DOBSubmit"
+              placeholder="Day"
+              [(ngModel)]="birthDaySubmit"
+              style="
+                margin-left: 5px;
+                border-radius: 10px;
+                height: 20px;
+                border-width: 1px;
+              "
+            />
+            <input
+              type="number"
+              min="1"
+              max="12"
+              name="birthMonthSubmit"
+              id="DOBSubmit"
+              placeholder="Month"
+              [(ngModel)]="birthMonthSubmit"
+              style="
+                margin-left: 5px;
+                border-radius: 10px;
+                height: 20px;
+                border-width: 1px;
+              "
+            />
+            <input
+              type="number"
+              min="1901"
+              max="2022"
+              name="birthYearSubmit"
+              id="DOBSubmit"
+              placeholder="Year"
+              [(ngModel)]="birthYearSubmit"
+              style="
+                margin-left: 5px;
+                border-radius: 10px;
+                height: 20px;
+                border-width: 1px;
+              "
+            />
+            <input
+              class="btn-edit"
+              id="submit-btn"
+              type="submit"
+              value="Submit"
+            />
+          </form>
+
+          <!-- form to change the profile picture -->
+          <form
+            style="margin-top: 20px; position: relative; right: -50px"
+            (ngSubmit)="updateProfilePicSubmit()"
+          >
+            <label for="profilePicSubmit"></label>
+            <input
+              type="text"
+              name="profilePicSubmit"
+              id="profilePicSubmit"
+              placeholder="Image URL"
+              [(ngModel)]="profilePicSubmit"
+              style="
+                margin-left: 5px;
+                border-radius: 10px;
+                height: 20px;
+                border-width: 1px;
+              "
+            />
+            <input
+              class="btn-edit"
+              id="submit-btn"
+              type="submit"
+              value="Submit"
+            />
+          </form>
+
+          <!-- button to get out of forms -->
+          <button
+            style="margin-left: 150px"
+            class="btn"
+            *ngIf="checkRoute()"
+            (click)="showChangeForms()"
+          >
+            Return
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
