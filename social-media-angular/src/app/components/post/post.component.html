@@ -28,10 +28,17 @@
       </mat-card-content>
     </section>
     <mat-card-content align="start" class="">
+<<<<<<< HEAD
         <div *ngFor="let emoji of emojis" class="emoji-box">
           <img class="emoji-img" src="{{emoji.emojiPic}}" alt="">
           <!-- <h4>{{postemoji.count}}</h4> -->
         </div>
+=======
+      <div *ngFor="let emoji of postemoji" class="emoji-box">
+        <img class="emoji-img" src="{{emojis[emoji.emoji.emojiId-1].emojiPic}}" alt="">
+        <h4>{{emoji.count}}</h4>
+      </div>
+>>>>>>> 8619b26267d68350197efb05e440bbc9fd7c9b6c
     </mat-card-content>
     <mat-card-actions align="end" class="button-card">
       <div *ngIf="emojiBox">
