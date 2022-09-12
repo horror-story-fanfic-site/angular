@@ -14,28 +14,12 @@ import { PostService } from './services/post.service';
 export class AppComponent {
   title = 'social-media-angular';
 
-  currentUser: User = this.auth.currentUser;
+  currentUser: User;
   constructor(private auth: AuthService, private localStorage: LocalService, private router: Router) { }
 
   ngOnInit(): void{
-    this.checkSession();
+    this.auth.checkSession(this.currentUser);
 
-  }
-
-  checkSession = (e: void) => {
-
-    if(this.currentUser == undefined){
-      let myObj = JSON.parse(this.localStorage.getData('user') || "{}");
-      if(myObj == undefined || null){
-        this.router.navigate(["login"]);
-      }
-      this.currentUser = myObj;
-      this.auth.login(this.currentUser.email, this.currentUser.password);
-      
-    } else{
-      this.auth.login(this.currentUser.email, this.currentUser.password);
-      
-    }
   }
 
 
