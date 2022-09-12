@@ -41,7 +41,7 @@
     height:340px;
   }
 
-  div.portfoliocard div.full_col{
+  div.portfoliocard div.full_col {
     width:100%;
     padding-top:85px;
     box-sizing:border-box;
@@ -157,5 +157,35 @@
   right: 11px;
   width: 120%;
   height: 120%;
+ }
+
+ .btn {
+  background: -webkit-linear-gradient(right, #a6f77b, #2ec06f);
+    border: none;
+    border-radius: 21px;
+    box-shadow: 0px 1px 8px #3C3F48;
+    cursor: pointer;
+    color: white;
+    font-family: "Raleway SemiBold", sans-serif;
+    height: 30px;
+    margin: 0 auto;
+    margin-top: 30px;
+    margin-left: 60px;
+    transition: 0.25s;
+    width: 100px;
+ }
+
+ .btn-edit {
+  background: -webkit-linear-gradient(right, #a6f77b, #2ec06f);
+  border-radius: 15px;
+  border: none;
+  cursor: pointer;
+  color: white;
+  font-family: "Raleway SemiBold", sans-serif;
+  height: 25px;
+  margin: 0 auto;
+  margin-left: 5px;
+  transition: 0.25s;
+  width: 80px;
  }
   
