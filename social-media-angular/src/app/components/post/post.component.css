@@ -93,7 +93,12 @@
 
 .emojbutton {
     background-color: white;
-    border: none;
+    border: transparent;
+    border-radius: 100px;
+}
+.emojbutton:hover{
+    background-color: #222f42b8;
+    cursor: pointer;
 }
 
 .emoji-img:hover{
