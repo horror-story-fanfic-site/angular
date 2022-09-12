@@ -28,12 +28,10 @@
       </mat-card-content>
     </section>
     <mat-card-content align="start" class="">
-      <div *ngIf="emojisExist">
         <div *ngFor="let emoji of emojis" class="emoji-box">
           <img class="emoji-img" src="{{emoji.emojiPic}}" alt="">
-          <h4>{{postemoji.count}}</h4>
+          <!-- <h4>{{postemoji.count}}</h4> -->
         </div>
-      </div>
     </mat-card-content>
     <mat-card-actions align="end" class="button-card">
       <div *ngIf="emojiBox">
