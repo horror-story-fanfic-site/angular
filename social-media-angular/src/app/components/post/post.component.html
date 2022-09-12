@@ -29,7 +29,7 @@
     </section>
     <mat-card-content align="start" class="">
       <div *ngFor="let emoji of postemoji" class="emoji-box">
-        <img class="emoji-img" [src]="getDaImage(emoji.emoji.emojiId)" alt="">
+        <img class="emoji-img" src="{{emojis[emoji.emoji.emojiId-1].emojiPic}}" alt="">
         <h4>{{emoji.count}}</h4>
       </div>
     </mat-card-content>

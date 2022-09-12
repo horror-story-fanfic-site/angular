@@ -34,6 +34,7 @@ export class PostComponent implements OnInit {
 
   ngOnInit(): void {
     console.log(this.postemoji);
+    this.getEmojis();
   }
 
   followUser(){
@@ -62,21 +63,12 @@ export class PostComponent implements OnInit {
       )
   }
   
-  getEmojis(emojiId: number){
-
+  getEmojis(){
 
     this.emojiService.getPostEmojis(this.post.id).subscribe((response) =>(
-      this.postemoji = this.postemoji
+      this.postemoji = response
     ))
-  }
-
-  getDaImage(emojiId: number): String{
-    for(let x=0;x<this.emojis.length;x++){
-      if (this.emojis[x].emojiId==emojiId){
-        return this.emojis[x].emojiPic;
-      }
-    }
-    return "";
+    console.log(this.postemoji);
   }
 
   submitEmoji(postId: number, emojiId: number){

@@ -18,8 +18,6 @@ export class EmojisComponent implements OnInit {
     //     this.posts = response
     //   }
     // )
-    console.log(this.posts);
-    console.log("Hello");
     // this.posts.forEach(element => {
     //   console.log(element);
     // });
