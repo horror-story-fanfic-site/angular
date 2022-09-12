@@ -1,16 +1,12 @@
 import { TestBed } from '@angular/core/testing';
-import { FollowersService } from './followers.service';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
 
-fdescribe('FollowersService', () => {
+import { FollowersService } from './followers.service';
+
+describe('FollowersService', () => {
   let service: FollowersService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({
-      imports: [
-          HttpClientTestingModule
-      ]
-    });
+    TestBed.configureTestingModule({});
     service = TestBed.inject(FollowersService);
   });
 
