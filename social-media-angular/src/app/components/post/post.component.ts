@@ -64,15 +64,15 @@ export class PostComponent implements OnInit {
   }
   
   getEmojis(){
-
     this.emojiService.getPostEmojis(this.post.id).subscribe((response) =>(
       this.postemoji = response
     ))
-    console.log(this.postemoji);
   }
 
   submitEmoji(postId: number, emojiId: number){
-    this.emojiService.submitEmoji(postId,emojiId).subscribe();
-    // this.getEmojis();
+    this.emojiService.submitEmoji(postId,emojiId).subscribe((response) =>(
+      this.getEmojis()
+      ))
+    
   }
 }
