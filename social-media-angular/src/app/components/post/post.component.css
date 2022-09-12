@@ -31,7 +31,7 @@
 
 .emoji-card {
     position: relative;
-    top: 4.5rem;
+    top: 4.3rem;
     display: inline-block;
     margin-right: 75%;
 }
@@ -40,6 +40,8 @@
     position: relative;
     right: 10;
     display: inline-block;
+    margin-top: 7px;
+
 }
 
 
