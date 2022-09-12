@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, SimpleChange } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Emojis } from 'src/app/mock-emojis';
 import Emoji from 'src/app/models/Emoji';
@@ -64,14 +64,15 @@ export class PostComponent implements OnInit {
   }
   
   getEmojis(){
-
     this.emojiService.getPostEmojis(this.post.id).subscribe((response) =>(
       this.postemoji = response
     ))
-    console.log(this.postemoji);
   }
 
   submitEmoji(postId: number, emojiId: number){
-    this.emojiService.submitEmoji(postId,emojiId).subscribe();
+    this.emojiService.submitEmoji(postId,emojiId).subscribe((response) =>(
+      this.getEmojis()
+      ))
+    
   }
 }
