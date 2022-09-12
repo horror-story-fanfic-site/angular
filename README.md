@@ -1,6 +1,6 @@
 <!-- TITLE -->
-# Social Media Frontend
-This is the frontend component for a social media application. The API can be found [here](https://github.com/revature-2206-social-capstone/spring).
+# WEBSITE NAME GOES HERE Front-end
+This is the front-end component for a horror story fan-fic website. The API can be found [here](https://github.com/revature-2206-social-capstone/spring). The full stack of this application was built using Java and Angular. 
 
 <!-- FEATURES -->
 ## Features
@@ -24,7 +24,7 @@ This is the frontend component for a social media application. The API can be fo
    ``` 
    https://github.com/revature-2206-social-capstone/angular.git
    ```
-
+   
 <!-- CONTRIBUTING -->
 ## Contributing
 
