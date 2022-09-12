@@ -4,6 +4,7 @@
 
 .btn {
     background: -webkit-linear-gradient(right, #a6f77b, #2ec06f);
+    margin: 5px !important;
 }
 
 .reply-btn {
@@ -14,18 +15,17 @@
 .emoji-img {
     width: 2rem;
     height: 2rem;
+    background: transparent !important;
 }
 
 .emoji-box {
     position: relative;
     right: 10;
-    display: inline-block;    
+    display: inline-block;
 }
 
 .emoji-btn {
-    
     border-style: none;
-    color: white;
 }
 
 .image {
@@ -69,4 +69,13 @@
 
 .reply-card {
     margin-right: 1%;
+}
+
+.emojbutton {
+    background-color: white;
+    border: none;
+}
+
+.emoji-img:hover{
+    transform: scale(1);
 }
