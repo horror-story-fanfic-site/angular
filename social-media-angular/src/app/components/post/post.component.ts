@@ -26,18 +26,15 @@ export class PostComponent implements OnInit {
   @Input('post') post: Post
   replyToPost: boolean = false;
   emojiBox: boolean = false;
-  emojisExist: boolean = false;
   emojis = Emojis
-  postemoji: PostEmoji;
+  postemoji: PostEmoji[];
   emoji: Emoji;
 
   constructor(private postService: PostService, private authService: AuthService, private profileService: ProfileService, private emojiService: EmojiService) { }
 
   ngOnInit(): void {
-    if(this.postemoji != undefined){
-      this.emojisExist = true;
-    }
     console.log(this.postemoji);
+    this.getEmojis();
   }
 
   followUser(){
@@ -66,12 +63,12 @@ export class PostComponent implements OnInit {
       )
   }
   
-  getEmojis(emojiId: number){
-
+  getEmojis(){
 
     this.emojiService.getPostEmojis(this.post.id).subscribe((response) =>(
-      this.postemoji = this.postemoji
+      this.postemoji = response
     ))
+    console.log(this.postemoji);
   }
 
   submitEmoji(postId: number, emojiId: number){
