@@ -25,6 +25,7 @@ export class FollowersComponent implements OnInit {
   onClick(): void{
     const username = String(this.router.snapshot.paramMap.get('username'))
     this.isFollow = !this.isFollow;
+    
     this.followersService.follow(username)
       .subscribe((response) =>{
           this.followersService.toFollowUser = response;

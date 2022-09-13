@@ -22,6 +22,8 @@ export class ProfileComponent implements OnInit {
   birthMonthSubmit: number;
   birthYearSubmit: number;
   follow: string;
+  profilePicSubmit: string;
+  showForms: boolean = false;
 
   currentUser: User;
 
@@ -45,14 +47,20 @@ export class ProfileComponent implements OnInit {
 
   }
   
+  // isUpdated: boolean = false;
   updateUsernameSubmit() {
-    console.log("in profile.ts:", this.usernameSubmit);
-    this.profileService.updateUsername(this.usernameSubmit).subscribe((response) => (
-      this.profile.username = this.usernameSubmit
-    ));
+  console.log("in profile.ts:", this.usernameSubmit);
+    this.profileService.updateUsername(this.usernameSubmit).subscribe((response) => {
+      this.profile.username = this.usernameSubmit;
+      // this.isUpdated = true;
+    });
     
-    //after the submit, clear the form
-    // this.usernameSubmit = "";
+    // //reset page on submit form
+    // if(this.isUpdated){
+    // this.redirectBackToProfile();
+    // // this.router.navigate(['profile']);
+    // this.isUpdated = false;
+    // }
   }
 
   updateDescriptionSubmit() {
@@ -65,15 +73,18 @@ export class ProfileComponent implements OnInit {
     // this.descriptionSubmit = "";
   }
   
+  
   updateDOBSubmit() {
 
     this.profileService.updateDOB(
       `${this.birthDaySubmit}`,
       `${this.birthMonthSubmit}`,
       `${this.birthYearSubmit}`
-    ).subscribe((response) => (
-      console.log("birthday changed")
-    ))
+    ).subscribe((response) => {
+      this.profile.birthDay = ""+this.birthDaySubmit;
+      this.profile.birthMonth = ""+this.birthMonthSubmit;
+      this.profile.birthYear = ""+this.birthYearSubmit;
+  })
   }
   
   checkRoute(): boolean {
@@ -85,9 +96,26 @@ export class ProfileComponent implements OnInit {
 
     // this.profileService.followPerson("KRichy123").subscribe((data) => (
     this.profileService.followPerson(this.profile.username).subscribe((data) => (
-    //this.profileService.followPerson("Username").subscribe((data) => (
       console.log(data.username)
     ))
   }
 
+  updateProfilePicSubmit() {
+    //add functionality here
+    this.profilePicSubmit
+
+    this.profileService.updateProfilePic(this.profilePicSubmit).subscribe((response) =>(
+      this.profile.profilePic = this.profilePicSubmit
+    ))
+  }
+
+  showChangeForms() {
+    // console.log(this.showForms);
+    this.showForms = !this.showForms;
+  }
+
+  // redirectBackToProfile() {
+  //   // this.router.navigateByUrl('/', {skipLocationChange: true}).then(()=>
+  //   // this.router.navigate(['profile']));
+  // }
 }
