@@ -47,20 +47,16 @@ export class ProfileComponent implements OnInit {
 
   }
   
-  // isUpdated: boolean = false;
+  /**
+   * Function to update the username.
+   */
   updateUsernameSubmit() {
   console.log("in profile.ts:", this.usernameSubmit);
     this.profileService.updateUsername(this.usernameSubmit).subscribe((response) => {
       this.profile.username = this.usernameSubmit;
-      // this.isUpdated = true;
+     
     });
     
-    // //reset page on submit form
-    // if(this.isUpdated){
-    // this.redirectBackToProfile();
-    // // this.router.navigate(['profile']);
-    // this.isUpdated = false;
-    // }
   }
 
   updateDescriptionSubmit() {
