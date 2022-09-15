@@ -21,6 +21,16 @@ const routes: Routes = [
   { path: "/forgotpassword", component: ForgotpasswordComponent},
   { path: "/resetpassword", component: ResetpasswordComponent},
   { path: "/follower-feed", component: FollowerFeedPageComponent}
+=======
+  { path: "login", component: LoginComponent },
+  { path: "register", component: RegisterComponent },
+  { path: "post-feed", component: PostFeedPageComponent},
+  { path: "profile", component: ProfileComponent },
+  { path: "view/:username", component: ProfileComponent },
+  { path: "forgotpassword", component: ForgotpasswordComponent},
+  { path: "resetpassword", component: ResetpasswordComponent},
+  { path: "follower-feed", component: FollowerFeedPageComponent}
+>>>>>>> eaffc7ace4eb1cb4c455f73f130cdc98d333f883
 ];
 
 @NgModule({
