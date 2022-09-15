@@ -23,6 +23,13 @@ import { ForgotpasswordComponent } from './components/forgotpassword/forgotpassw
 import { ResetpasswordComponent } from './components/resetpassword/resetpassword.component';
 import { FollowerFeedPageComponent } from './components/follower-feed-page/follower-feed-page.component';
 import { EmojisComponent } from './components/emojis/emojis.component';
+import { AuthService } from './services/auth.service';
+import { EmojiService } from './services/emoji.service';
+import { FollowersService } from './services/followers.service';
+import { LocalService } from './services/local.service';
+import { PostService } from './services/post.service';
+import { ProfileService } from './services/profile.service';
+import { ResetpasswordService } from './services/resetpassword.service';
 
 @NgModule({
   declarations: [
