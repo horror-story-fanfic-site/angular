@@ -10,7 +10,8 @@ import { RegisterComponent } from './components/register/register.component';
 import { ResetpasswordComponent } from './components/resetpassword/resetpassword.component';
 
 const routes: Routes = [
-  { path: "", redirectTo: "/login", pathMatch: "full" },
+ // { path: "", redirectTo: "/login", pathMatch: "full" },
+  { path: "", redirectTo: "login", pathMatch: "full" },
 //  { path: "", pathMatch: "full" },
 //  { path: "/login", redirectTo: "/login", component: LoginComponent },
   { path: "login", component: LoginComponent },
