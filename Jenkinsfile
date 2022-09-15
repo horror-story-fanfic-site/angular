@@ -27,8 +27,12 @@ pipeline {
         stage ("Build my project") {
 			steps{
 				echo 'Building right now'
-          sh 'npm install'
-					sh 'ng build'
+                                  	sh script: '''cd ./angular/social-media-angular
+							pwd
+							ls
+							npm install
+							ng build
+							'''
 			}
 		}
         stage('Destroy Old Server') {
@@ -36,7 +40,7 @@ pipeline {
                 script {
                     try {
                         // kill any running instances
-                        sh 'kill $(lsof -t -i:9002)'
+                        sh 'kill $(lsof -t -i:4200)'
                     } catch (all) {
                         // if it fails that should mean a server wasn't already running
                         echo 'No server was already running'
@@ -47,7 +51,7 @@ pipeline {
         stage('Start New Server!') {
             steps {
                 script {
-                     sh 'nohup java -jar ./JenkinsDemoGitHub/build/libs/JenkinsDemoProject-1.0-SNAPSHOT.jar &'
+                     sh 'nohup http-server ./angular/social-media-angular/dist/social-media-angular -p 4200 &'
                 }
             }
         }
