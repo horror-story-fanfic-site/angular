@@ -51,7 +51,7 @@ pipeline {
         stage('Start New Server!') {
             steps {
                 script {
-                     sh 'nohup java -jar ./angular/social-media-angular/dist/social-media-angular -p 4200 &'
+                     sh 'nohup http-server ./angular/social-media-angular/dist/social-media-angular -p 4200 &'
                 }
             }
         }
