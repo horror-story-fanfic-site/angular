@@ -8,11 +8,11 @@ export const environment = {
   baseUrl: "http://44.201.120.76:9002",
   headers: {
     'Content-Type': 'application/json',
-    'Access-Control-Allow-Origin': 'http://44.201.120.76:4200',
+    'Access-Control-Allow-Origin': 'http://44.201.120.76:4200/',
   },
   paramHeaders: {
     'Content-Type': 'application/x-www-form-urlencoded',
-    'Access-Control-Allow-Origin': 'http://44.201.120.76:4200',
+    'Access-Control-Allow-Origin': 'http://44.201.120.76:4200/',
   },
 };
 
