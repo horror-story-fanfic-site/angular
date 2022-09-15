@@ -19,11 +19,11 @@
           <div class="follow_count">{{profile.peopleFollowed.length}}</div>
           Users Followed
         </div>
-        <div *ngIf="profile.birthDay != null" class="following">
+        <!-- <div *ngIf="profile.birthDay != null" class="following">
           Birthday: {{profile.birthMonth}}/{{profile.birthDay
 
           }}/{{profile.birthYear}}
-        </div>
+        </div> -->
       </div>
       <div class="right_col" *ngIf="showForms == false">
         <h2 class="name">{{ profile.username }}</h2>
@@ -154,7 +154,7 @@
             />
           </form>
 
-          <!-- form to change the profile picture -->
+           <-- form to change the profile picture -->
           <form
             style="margin-top: 20px; position: relative; right: -50px"
             (ngSubmit)="updateProfilePicSubmit()"
@@ -179,7 +179,7 @@
               type="submit"
               value="Submit"
             />
-          </form>
+          </form>  -->
 
           <!-- button to get out of forms -->
           <button
