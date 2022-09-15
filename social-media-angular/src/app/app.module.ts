@@ -30,7 +30,6 @@ import { LocalService } from './services/local.service';
 import { PostService } from './services/post.service';
 import { ProfileService } from './services/profile.service';
 import { ResetpasswordService } from './services/resetpassword.service';
-import { UsersService } from './services/users.service';
 
 @NgModule({
   declarations: [
@@ -65,7 +64,7 @@ import { UsersService } from './services/users.service';
     AngularMaterialModule,
     FormsModule,
   ],
-  providers: [AuthService, EmojiService, FollowersService, LocalService, PostService, ProfileService, ResetpasswordService, UsersService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
